@@ -2,7 +2,7 @@
 
 #### 介绍
 
-在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/)
+在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=tour)
 
 Fast海报生成器，快速完成海报开发。
 
