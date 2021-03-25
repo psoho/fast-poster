@@ -22,9 +22,19 @@ Fast海报生成器，快速完成海报开发。
 
 #### 安装教程
 
-1.  下载代码 `git clone https://gitee.com/psoho/fast-poster.git`
-2.  安装依赖 `pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt`
-3.  运行 `python app.py`
+
+1.  下载代码 
+```
+git clone https://gitee.com/psoho/fast-poster.git
+```
+2.  安装依赖 
+```
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+```
+3.  启动工程
+```
+python app.py
+```
 
 #### 使用说明
 
