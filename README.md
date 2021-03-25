@@ -12,7 +12,7 @@ Fast海报生成器，快速完成海报开发。
 
 #### 效果图
 
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0325/152818_a0e7a0c4_301987.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0325/162231_45595f25_301987.png "屏幕截图.png")
 
 
 #### 项目背景
