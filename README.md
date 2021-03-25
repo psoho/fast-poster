@@ -25,9 +25,11 @@ Fast海报生成器，快速完成海报开发
 点击 [代码] ，可以查看相关的接⼝调⽤代码。
 
 3.  示例效果
-![1新建](https://images.gitee.com/uploads/images/2021/0325/110604_40a16d39_301987.png "屏幕截图.png")
-![2文本](https://images.gitee.com/uploads/images/2021/0325/110615_83628e0a_301987.png "屏幕截图.png")
+
+
 ![3二维码](https://images.gitee.com/uploads/images/2021/0325/110627_83c0b1c8_301987.png "屏幕截图.png")
+
+![4代码](https://images.gitee.com/uploads/images/2021/0325/110853_6760b87a_301987.png "屏幕截图.png")
 
 #### 参与贡献
 
