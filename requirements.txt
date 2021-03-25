@@ -1,0 +1,8 @@
+requests==2.23.0
+Flask==1.1.2
+flask_cors==3.0.8
+flask_uploads==0.2.1
+Pillow==7.1.2
+qrcode==6.1
+requests_cache==0.5.2
+werkzeug==0.16.0
