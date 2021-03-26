@@ -32,9 +32,16 @@ git clone https://gitee.com/psoho/fast-poster.git
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 ```
 3.  启动工程
-```
+```bash
 python app.py
+
+# 留意一下生成的KEY，这里登陆需要用到。
+# 生成KEY列表
+# accessKey: MrFaEmDiIeoOphuO
+# secretKey: NUdUf6GdXTO6KfUG39nc
 ```
+4.  打开浏览器: [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
+
 
 #### 使用说明
 
