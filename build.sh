@@ -6,9 +6,11 @@ POSTER_VERSION=1.3.0
 cd `dirname $0`
 
 function build() {
-  echo 构建镜像 tangweixin/poster:$POSTER_VERSION
-  docker build -t tangweixin/poster:$POSTER_VERSION -f Dockerfile .
-  docker push tangweixin/poster:$POSTER_VERSION
+  echo 构建镜像 tangweixin/fast-poster:$POSTER_VERSION
+  docker build -t tangweixin/fast-poster:$POSTER_VERSION -f Dockerfile .
+  docker tag tangweixin/fast-poster:$POSTER_VERSION tangweixin/fast-poster:latest
+  docker push tangweixin/fast-poster:$POSTER_VERSION
+  docker push tangweixin/fast-poster:latest
 }
 
 build

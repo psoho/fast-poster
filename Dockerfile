@@ -11,10 +11,11 @@ EXPOSE 9001
 VOLUME /app/static
 
 WORKDIR /app
-RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+#RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+RUN pip install -r requirements.txt
 
-ENV ACCESS_KEY=""
-ENV SECRET_KEY=""
-ENV POSTER_URI_PREFIX=""
+ENV ACCESS_KEY="ApfrIzxCoK1DwNZO"
+ENV SECRET_KEY="EJCwlrnv6QZ0PCdvrWGi"
+ENV POSTER_URI_PREFIX="http://127.0.0.1:9001/"
 
 ENTRYPOINT ["/bin/bash", "start.sh"]
