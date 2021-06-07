@@ -1,0 +1,17 @@
+version: '3'
+services:
+
+  poster-demo:
+    container_name: poster-demo
+    image: tangweixin/poster:1.3.0
+    restart: on-failure
+    ports:
+      - 9001:9001
+    volumes:
+      - ./poster/db:/app/db
+      - ./poster/storage:/app/static/storage
+    environment:
+      TZ: Asia/Shanghai
+      ACCESS_KEY: ApfrIzxCoK1DwNZO
+      SECRET_KEY: EJCwlrnv6QZ0PCdvrWGi
+      POSTER_URI_PREFIX: http://127.0.0.1:9001/
