@@ -20,6 +20,43 @@ Fast海报生成器，快速完成海报开发。
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0325/162231_45595f25_301987.png "屏幕截图.png")
 
 
+#### 安装教程-Docker
+
+1. 运行命令: 
+```bash
+docker run -p 9001:9001 tangweixin/fast-poster
+```
+
+2.  打开浏览器: [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
+
+
+#### 安装教程-Docker-compose方式
+
+1. 运行命令: `docker-compose up`
+```yaml
+# filename: docker-compose.yml
+# 完整配置
+version: '3'
+services:
+
+  poster-demo:
+    container_name: poster-demo
+    image: tangweixin/poster:1.3.0
+    restart: on-failure
+    ports:
+      - 9001:9001
+    volumes:
+      - ./poster/db:/app/db
+      - ./poster/storage:/app/static/storage
+    environment:
+      TZ: Asia/Shanghai
+      ACCESS_KEY: ApfrIzxCoK1DwNZO
+      SECRET_KEY: EJCwlrnv6QZ0PCdvrWGi
+      POSTER_URI_PREFIX: http://127.0.0.1:9001/
+```
+2.  打开浏览器: [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
+
+
 #### 安装教程
 
 
