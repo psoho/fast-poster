@@ -22,7 +22,7 @@
 
 1. 运行命令: 
 ```bash
-docker run -p 9001:9001 tangweixin/fast-poster
+docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 ```
 
 2.  打开浏览器: [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
