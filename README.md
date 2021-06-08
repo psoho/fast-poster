@@ -4,23 +4,21 @@
 
 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=tour)
 
-Fast海报生成器，快速完成海报开发。
+`fast-poster`海报生成器，一分钟完成海报开发。
 
 
 #### 特性
 
-- 快速：三步完成海报开发工作：[编辑] > [生成代码] > [完成开发]
+- 快速：三步完成海报开发工作：`启动服务` > `编辑海报` > `生成代码`
 - 简单：组件丰富、支持拖拽、复制、所见即所得、下载等功能。
-- 高效：编辑好海报后，能直接生成调用代码。
-- 方便：只要参数不变，不必修改代码，直接在编辑器修改海报即可获得最新的海报。
-- 广泛：所有可以发送`HTTP`请求的语言都可以使用。
+- 动态：无需更改代码，直接在编辑器修改海报即可获得最新的海报。
 
 #### 效果图
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0325/162231_45595f25_301987.png "屏幕截图.png")
 
 
-#### 安装教程-Docker
+#### 安装
 
 1. 运行命令: 
 ```bash
@@ -28,57 +26,6 @@ docker run -p 9001:9001 tangweixin/fast-poster
 ```
 
 2.  打开浏览器: [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
-
-
-#### 安装教程-Docker-compose方式
-
-1. 运行命令: `docker-compose up`
-```yaml
-# filename: docker-compose.yml
-# 完整配置
-version: '3'
-services:
-
-  poster-demo:
-    container_name: poster-demo
-    image: tangweixin/poster:1.3.0
-    restart: on-failure
-    ports:
-      - 9001:9001
-    volumes:
-      - ./poster/db:/app/db
-      - ./poster/storage:/app/static/storage
-    environment:
-      TZ: Asia/Shanghai
-      ACCESS_KEY: ApfrIzxCoK1DwNZO
-      SECRET_KEY: EJCwlrnv6QZ0PCdvrWGi
-      POSTER_URI_PREFIX: http://127.0.0.1:9001/
-```
-2.  打开浏览器: [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
-
-
-#### 安装教程
-
-
-1.  下载代码 
-```
-git clone https://gitee.com/psoho/fast-poster.git
-```
-2.  安装依赖 
-```
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
-```
-3.  启动工程
-```bash
-python app.py
-
-# 留意一下生成的KEY，这里登陆需要用到。
-# 生成KEY列表
-# accessKey: MrFaEmDiIeoOphuO
-# secretKey: NUdUf6GdXTO6KfUG39nc
-```
-4.  打开浏览器: [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
-
 
 #### 使用说明
 
@@ -98,12 +45,11 @@ python app.py
 
 #### 参与贡献
 
+* Thomas
 
 #### 赞赏
 
-你的一点赞赏，是作者坚持的动力。
-
-(多少都是心意😁)
+你的一点赞赏，是作者坚持的动力。(多少都是心意😁)
 
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0325/154359_813f1877_301987.png "屏幕截图.png")
@@ -111,21 +57,23 @@ python app.py
 
 #### 项目背景
 
-Fast海报生成器，是经过众多电商项⽬后，由于经常遇到需要⽣成海报的需求，所以特别开发的⼀款⼯具。
+`fast-poster`海报生成器，是经过众多电商项⽬后，由于经常遇到需要⽣成海报的需求，所以特别开发的⼀款⼯具。
 
-期间也参考了很多类似项⽬，最开始⽤ Java 实现。后⾯发现海报效果不是特别理想，达不到像素级要求。最后使⽤ python 全⾯重构，效果⽐较满意。
+期间也参考了很多类似项⽬，最开始⽤ `Java` 实现。后⾯发现海报效果不是特别理想，达不到像素级要求。最后使⽤ `Python` 全⾯重构，效果⽐较满意。
 
-现在已经服务了好⼏个电商项⽬，多个项⽬有30W+⽤户，通过过⽣产的考验，稳定可靠。
+现在已经服务了好⼏个电商项⽬，多个项⽬有`32W+`⽤户，通过过⽣产的考验，稳定可靠。
 
 如果⼤家在使⽤过程中，发现有任何问题，欢迎添加 微信 进⾏反馈。
 
 
 #### 软件架构
-软件架构说明
 
-`Python` `Vue`
 
-调用端支持`Java` `Python` `JS` 等可以发送`HTTP`请求的语言.
+技术栈
+* `Python`
+* `Vue`
+
+客户端调用支持`Java` `Python` `cURL` `JS` 等可以发送`HTTP`请求的语言.
 
 
 
