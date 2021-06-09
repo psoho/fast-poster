@@ -46,14 +46,14 @@ docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 #### 参与贡献
 
 * Thomas
+* Alex
 
 #### 赞赏
 
 你的一点赞赏，是作者坚持的动力。(多少都是心意😁)
 
 
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0325/154359_813f1877_301987.png "屏幕截图.png")
-
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0609/152314_a6c2dbc5_301987.jpeg "微信.jpg")
 
 #### 项目背景
 
