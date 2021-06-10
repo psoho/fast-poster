@@ -1,10 +1,38 @@
 {
   "id": "1683445",
-  "name": "fast海报生成器",
+  "name": "fast-poster海报生成器",
   "font_family": "iconfont",
   "css_prefix_text": "icon",
-  "description": "fast海报生成器-私有化部署",
+  "description": "fast-poster海报生成器",
   "glyphs": [
+    {
+      "icon_id": "7396772",
+      "name": "gitee",
+      "font_class": "gitee1",
+      "unicode": "e6d6",
+      "unicode_decimal": 59094
+    },
+    {
+      "icon_id": "20840069",
+      "name": "Logo GitHub",
+      "font_class": "huaban88",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "7318532",
+      "name": "gitee",
+      "font_class": "logo-black",
+      "unicode": "e731",
+      "unicode_decimal": 59185
+    },
+    {
+      "icon_id": "20923391",
+      "name": "gitee",
+      "font_class": "gitee",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
     {
       "icon_id": "4765281",
       "name": "文件",
