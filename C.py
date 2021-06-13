@@ -21,7 +21,6 @@ STATUS_DELETE = 2  # 删除
 
 
 def mkdirs(path):
-    # print("目录是否存在: path=" + os.getcwd() + ", " + path)
     if not os.path.exists(path):
         print("目录是否存在(不存在-创建目录): path=" + path)
         os.makedirs(path)
@@ -30,7 +29,10 @@ def mkdirs(path):
 
 
 def init_path():
-    """初始化路径"""
+    """
+    初始化路径
+    :return:
+    """
     print("初始化路径")
     mkdirs(STORE_DB)
     mkdirs(STORE_PREVIEW)
@@ -53,13 +55,21 @@ def add_url_prefix(path: str):
     return prefix + path
 
 
-# 获取资源的URL访问路径
 def get_url_path(path: str):
+    """
+    获取资源的URL访问路径
+    :param path:
+    :return:
+    """
     return add_url_prefix(path.replace('static/', ''))
 
 
-# 获得资源的本地存储路径
 def get_url_local_path(url):
+    """
+    获得资源的本地存储路径
+    :param url:
+    :return:
+    """
     return 'static' + url
 
 

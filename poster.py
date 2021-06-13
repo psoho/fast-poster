@@ -41,7 +41,6 @@ def fetchImg(url=None):
         return fetchImg('/img/no-img.jpg')
 
 
-# 绘制图片
 def drawImg(draw, item, bg):
     """绘制图片"""
     url = item['v']
@@ -123,10 +122,8 @@ def drawText(draw, item, bg):
         bg.paste(img, (x, y), img)
 
 
-# 根据json绘制海报
-
-# 绘制二维码
 def drawQrCode(draw, item, bg):
+    """绘制二维码"""
     url = item['v']
     w = item['w']
     h = item['h']
@@ -151,8 +148,8 @@ def drawQrCode(draw, item, bg):
     bg.paste(img, (x, y), None)
 
 
-# 绘制头像
 def drawAvatar(draw, item, bg):
+    """绘制头像"""
     url = item['v']
     w = item['w']
     h = item['h']
@@ -183,8 +180,8 @@ def drawAvatar(draw, item, bg):
     pass
 
 
-# 根据json绘制海报
 def draw(data):
+    """根据json绘制海报"""
     # 绘制底图
     img, draw = drawBg(data)
 
@@ -231,11 +228,10 @@ def drawio(data):
     # img.save(buf, type, progressive=True)
     # img.save(buf, type)
     buf.seek(0)
-
     return buf, mimetype
 
 
-def drawmini(data, scale=0.6):
+def drawmini(data, scale=0.5):
     """生成缩略图"""
     im = draw(data)
     w = im.size[0]

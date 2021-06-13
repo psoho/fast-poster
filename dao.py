@@ -85,6 +85,7 @@ def db_delete_poster(id: int):
 
 
 def db_save_share(code, poster_id, param):
+    """保存分享记录"""
     with conn() as con:
         c = con.cursor()
         params = [code, poster_id, param, now_str()]
@@ -252,14 +253,10 @@ def find_share_data(code):
             dic[k]['v'] = v
     # print(json.dumps(data, indent=2))
     return data
-    # ## 合并json数据
-    # ## 生成海报
-    # print(json.dumps(data, indent=2))
-    # return None
 
 
-# 保存token
 def save_token(token):
+    """保存token"""
     with conn() as con:
         c = con.cursor()
         params = [token, now_str(), now_str(days=10)]
@@ -268,8 +265,8 @@ def save_token(token):
         return c.lastrowid
 
 
-# 查询token
 def query_token(token):
+    """查询token"""
     with conn() as con:
         c = con.cursor()
         r = c.execute('select * from tokens where token = ? and expire_time >= ? limit 1', [token, now_str()])

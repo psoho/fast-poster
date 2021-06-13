@@ -21,22 +21,21 @@ configure_uploads(app, photos)
 patch_request_class(app)  # 文件大小限制，默认为16MB
 
 
-# @app.route('/')
-# def index():
-#     return redirect('/index.html')
-
 @app.route('/')
 def index():
+    """
+    重定向首页
+    :return:
+    """
     return app.send_static_file('index.html')
-
-
-@app.route('/hello')
-def hello_world():
-    return 'Hello World!'
 
 
 @app.route('/api/login', methods=['POST'])
 def login():
+    """
+    登录
+    :return:
+    """
     accessKey = request.form['accessKey']
     secretKey = request.form['secretKey']
     if key.check(accessKey, secretKey):
@@ -49,6 +48,10 @@ def login():
 
 @app.before_request
 def check_token():
+    """
+    检查token
+    :return:
+    """
     path = request.path
     filter_list = ['/api/user/posters']
     ignore = True
@@ -83,6 +86,7 @@ def save_or_update_user_poster():
 def delete_user_posters(id):
     dao.db_delete_poster(int(id))
     return R.ok().json()
+
 
 @app.route('/api/user/posters/copy/<id>', methods=['POST'])
 def copy_user_poster(id):
@@ -146,16 +150,5 @@ def resp_poster_img(data):
 
 if __name__ == '__main__':
     # app.run(host="0.0.0.0", port=9001, debug=True)
-    # 加载key
-    # key.load()
-
-    app.run(host="0.0.0.0", port=9001, debug=True)
+    app.run(host="0.0.0.0", port=9001, debug=False, threaded=False, processes=2)
     print('启动...')
-
-## TODO:
-#    代码整合 OK
-#    权限 OK
-#    日志 OK
-#    分享  OK
-#    静态首页  OK
-#    代码打包下载
