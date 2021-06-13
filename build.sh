@@ -9,8 +9,8 @@ function build() {
   echo 构建镜像 tangweixin/fast-poster:$POSTER_VERSION
   docker build -t tangweixin/fast-poster:$POSTER_VERSION -f Dockerfile .
   docker tag tangweixin/fast-poster:$POSTER_VERSION tangweixin/fast-poster:latest
-  docker push tangweixin/fast-poster:$POSTER_VERSION
-  docker push tangweixin/fast-poster:latest
+#  docker push tangweixin/fast-poster:$POSTER_VERSION
+#  docker push tangweixin/fast-poster:latest
 }
 
 build

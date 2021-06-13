@@ -142,7 +142,7 @@ def resp_poster_img(data):
     resp = Response(buf, mimetype=mimetype)
     resp.add_etag()
     resp.automatically_set_content_length = True
-    # resp.headers.add('Cache-Control', 'max-age=60')
+    resp.headers.add('Cache-Control', 'max-age=60')
     # resp.headers.add('Access-Control-Allow-Origin', '*')
     logger.info('请求返回了')
     return resp
@@ -150,5 +150,5 @@ def resp_poster_img(data):
 
 if __name__ == '__main__':
     # app.run(host="0.0.0.0", port=9001, debug=True)
-    app.run(host="0.0.0.0", port=9001, debug=False, threaded=False, processes=2)
+    app.run(host="0.0.0.0", port=9001, debug=True, threaded=False, processes=2)
     print('启动...')
