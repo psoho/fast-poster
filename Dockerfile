@@ -1,7 +1,7 @@
 FROM python:3.7-slim
 
 LABEL maintainer="thomastangweixin@163.com"
-LABEL version="1.3.1"
+LABEL version="1.3.2"
 
 ADD app.py C.py dao.py poster.py R.py start.sh key.py requirements.txt /app/
 COPY static/ /app/static/
