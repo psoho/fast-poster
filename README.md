@@ -1,10 +1,10 @@
-# fast-poster
+# fast-poster通用海报生成器
 
 #### 介绍
 
 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=tour)
 
-`fast-poster`海报生成器，一分钟完成海报开发。
+`fast-poster`通用海报生成器，一分钟完成海报开发。
 
 
 #### 特性
