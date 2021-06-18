@@ -8,10 +8,18 @@ import R
 
 
 def conn():
+    """
+    获取数据库连接
+    :return:
+    """
     return sqlite3.connect(C.STORE_DB + '/poster.sqlite')
 
 
 def init():
+    """
+    初始化数据库文件
+    :return:
+    """
     C.init_path()
     with conn() as con:
         c = con.cursor()
@@ -55,10 +63,19 @@ def init():
             print("tokens created successfully.")
 
 
+# 执行初始化
 init()
 
 
 def db_save_poster(code: str, name: str, preview: str, json: str):
+    """
+    保存海报
+    :param code:
+    :param name:
+    :param preview:
+    :param json:
+    :return:
+    """
     with conn() as con:
         c = con.cursor()
         params = [code, name, preview, json, now_str(), int(C.STATUS_NORMAL)]
@@ -69,6 +86,15 @@ def db_save_poster(code: str, name: str, preview: str, json: str):
 
 
 def db_update_poster(id: int, code: str, name: str, preview: str, json: str):
+    """
+    更新海报
+    :param id:
+    :param code:
+    :param name:
+    :param preview:
+    :param json:
+    :return:
+    """
     with conn() as con:
         c = con.cursor()
         params = [code, name, preview, json, now_str(), id]
