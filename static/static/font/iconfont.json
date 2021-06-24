@@ -1,9 +1,9 @@
 {
   "id": "1683445",
-  "name": "fast-poster海报生成器",
+  "name": "fast-poster通用海报生成器",
   "font_family": "iconfont",
   "css_prefix_text": "icon",
-  "description": "fast-poster海报生成器",
+  "description": "fast-poster通用海报生成器",
   "glyphs": [
     {
       "icon_id": "7396772",
