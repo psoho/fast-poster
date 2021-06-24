@@ -232,7 +232,12 @@ def drawio(data):
 
 
 def drawmini(data, scale=0.5):
-    """生成缩略图"""
+    """
+    生成缩略图
+    :param data:
+    :param scale:
+    :return:
+    """
     im = draw(data)
     w = im.size[0]
     h = im.size[1]
