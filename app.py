@@ -1,3 +1,5 @@
+import base64
+
 from flask import Flask, Response, request
 from flask_cors import CORS
 from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
@@ -117,21 +119,42 @@ def get_link():
 
 @app.route('/view/<string:code>', methods=['GET'])
 def view(code: str):
-    """通过分享链接访问"""
-    # print('通过分享链接访问 code=' + code)
+    """
+    查看海报
+    :param code:
+    :return:
+    """
     code = code[:code.index('.')]
-    # print('通过分享链接访问 code=' + code)
     data = dao.find_share_data(code)
     if data is None:
         # TODO: 返回一张提示图片
-        return 'dfs'
+        return '不好意思，海报不见了'
     return resp_poster_img(data)
+
+
+@app.route('/b64/<string:code>', methods=['GET'])
+def view_b64(code: str):
+    """
+    返回base64编码
+    :param code:
+    :return:
+    """
+    code = code[:code.index('.')]
+    data = dao.find_share_data(code)
+    if data is None:
+        return '不好意思，海报不见了'
+    buf, mimetype = poster.drawio(data)
+    base64_data = base64.b64encode(buf.read())
+    s = base64_data.decode()
+    return s
 
 
 @app.route('/api/preview', methods=['POST'])
 def preview():
-    """预览"""
-    logger.info('预览')
+    """
+    预览
+    :return:
+    """
     data = request.get_json()
     return resp_poster_img(data)
 
@@ -144,11 +167,12 @@ def resp_poster_img(data):
     resp.automatically_set_content_length = True
     resp.headers.add('Cache-Control', 'max-age=60')
     # resp.headers.add('Access-Control-Allow-Origin', '*')
-    logger.info('请求返回了')
+    # logger.info('请求返回了')
     return resp
 
 
 if __name__ == '__main__':
     # app.run(host="0.0.0.0", port=9001, debug=True)
-    app.run(host="0.0.0.0", port=9001, debug=True, threaded=False, processes=2)
+    # 调整为4核
+    app.run(host="0.0.0.0", port=9001, debug=True, threaded=False, processes=4)
     print('启动...')
