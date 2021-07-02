@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # desc: 构建镜像
-POSTER_VERSION=1.3.3
+POSTER_VERSION=1.4.0
 
 cd `dirname $0`
 

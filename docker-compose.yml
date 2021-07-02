@@ -3,7 +3,7 @@ services:
 
   poster-demo:
     container_name: poster-demo
-    image: tangweixin/fast-poster:1.3.3
+    image: tangweixin/fast-poster:1.4.0
     restart: on-failure
     ports:
       - 9001:9001
