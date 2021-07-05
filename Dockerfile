@@ -3,7 +3,7 @@ FROM python:3.7-slim
 LABEL maintainer="thomastangweixin@163.com"
 LABEL version="1.4.0"
 
-ADD app.py C.py dao.py poster.py R.py start.sh key.py requirements.txt /app/
+ADD app.py C.py dao.py poster.py R.py start.sh key.py requirements.txt LICENSE README.md /app/
 COPY static/ /app/static/
 COPY fonts/ /app/fonts/
 
