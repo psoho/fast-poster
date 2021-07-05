@@ -17,7 +17,7 @@ requests_cache.install_cache(C.STORE_DB + '/cache')
 
 def fetchImg(url=None):
     """加载图片"""
-    print(f"fetch img: {url}")
+    # print(f"fetch img: {url}")
     if '/storage/upload/' in url:
         # 先判断是否存在本地文件系统
         # http://127.0.0.1:9001/storage/upload/0186e7249df3f1b7.jpg

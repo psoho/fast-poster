@@ -214,6 +214,7 @@ def save_or_update_user_poster(data):
     # print(data)
     # 生成缩略图
     pd = json.loads(data['json'])
+    print(pd)
     id = data.get('id', 0)
     if id == 0:
         # 新增海报

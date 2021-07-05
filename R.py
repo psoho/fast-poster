@@ -16,6 +16,10 @@ class R():
         """
         return json.dumps(self.d)
 
+    def dict(self):
+        # 返回字典
+        return self.d
+
     def add(self, key, value):
         """
         链式调用支持

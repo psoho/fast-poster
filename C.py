@@ -91,3 +91,7 @@ def code(len=32) -> str:
     @return:
     """
     return md5(str(uuid.uuid4()), len)
+
+
+def get_upload_dir():
+    return STORE_UPLOAD
