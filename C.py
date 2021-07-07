@@ -94,4 +94,8 @@ def code(len=32) -> str:
 
 
 def get_upload_dir():
+    """
+    获取上传目录
+    :return:
+    """
     return STORE_UPLOAD
