@@ -4,11 +4,11 @@
 
 一个快速开发动态海报的工具
 
-在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v1.4.0)
+在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v1.4.1)
 
 ### 演示
 
-![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.0/WX20210706-004423%402x.png "WX20210615-081039.jpg")
+![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.1/WX20210706-004423%402x.png "WX20210615-081039.jpg")
 
 ### 特性
 
@@ -33,13 +33,13 @@ docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 
 点击`预览`，可以实时查看最终⽣成的效果。
 
-![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.0/WX20210706-004414%402x.png "WX20210615-081414.jpg")
+![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.1/WX20210706-004414%402x.png "WX20210615-081414.jpg")
 
 #### 三、生成代码：
 
 保存海报，然后点击`代码`，可以查看相关的语言调⽤代码。
 
-![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.0/WX20210706-004444%402x.png "WX20210615-081414.jpg")
+![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.1/WX20210706-004444%402x.png "WX20210615-081414.jpg")
 
 
 ### 参与贡献
@@ -75,7 +75,7 @@ docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 
 ### 授权说明
 
-从v1.4.0版本开始，为了项目和团队的健康发展，我们修改开源授权许可协议为GPL3.0，请商业使用的小伙伴注意。如果需要更宽松的授权，请扫码联系我们。
+从v1.4.1版本开始，为了项目和团队的健康发展，我们修改开源授权许可协议为GPL3.0，请商业使用的小伙伴注意。如果需要更宽松的授权，请扫码联系我们。
 
 ### 软件架构
 
