@@ -18,11 +18,11 @@ class BaseHandler(RequestHandler):
 
     def set_default_headers(self) -> None:
         origin_url = self.request.headers.get('Origin')
-        self.set_header('Access-Control-Allow-Origin', origin_url)
-        self.set_header('Access-Control-Allow-Credentials', 'true')
-        self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type')
         # self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
-        # self.set_header("Access-Control-Max-Age", 1000)
+        self.set_header('Access-Control-Allow-Credentials', 'true')
+        if origin_url:
+            self.set_header('Access-Control-Allow-Origin', origin_url)
+        self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type')
 
     def options(self):
         self.set_status(200)  # 这里的状态码一定要设置200
@@ -59,7 +59,8 @@ class ApiLoginHandler(BaseHandler):
 class ApiUserPostersHandler(BaseHandler):
 
     def prepare(self):
-        self.check_token()  # 检查token是否有效
+        # self.check_token()  # 检查token是否有效
+        ...
 
     def get(self):
         # 获取海报列表
