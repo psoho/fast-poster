@@ -34,13 +34,13 @@ docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 
 点击`预览`，可以实时查看最终⽣成的效果。
 
-![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.0/WX20210706-004414%402x.png "WX20210615-081414.jpg")
+![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.0/WX20210707-232649%402x.png)
 
 #### 三、生成代码：
 
 保存海报，然后点击`代码`，可以查看相关的语言调⽤代码。
 
-![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.0/WX20210706-004444%402x.png "WX20210615-081414.jpg")
+![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.0/WX20210707-232717%402x.png)
 
 
 ### 参与贡献
