@@ -1,4 +1,4 @@
-## fastposter低代码海报生成器
+## fastposter海报生成器
 
 ### 介绍
 
