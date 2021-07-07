@@ -4,11 +4,13 @@
 
 一个快速开发动态海报的工具
 
-在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v1.4.1)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v1.4.1)
+- 只要一个 [Github Star](https://github.com/psoho/fast-poster) 就可以鼓励作者尽快完成 `剩下的 15%`
+- 只要一个 [Gitee Star](https://gitee.com/psoho/fast-poster) 就可以鼓励作者尽快完成 `剩下的 15%`
 
 ### 演示
 
-![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.1/WX20210706-004423%402x.png "WX20210615-081039.jpg")
+![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.0/WX20210706-004423%402x.png "WX20210615-081039.jpg")
 
 ### 特性
 
@@ -33,13 +35,13 @@ docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 
 点击`预览`，可以实时查看最终⽣成的效果。
 
-![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.1/WX20210706-004414%402x.png "WX20210615-081414.jpg")
+![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.0/WX20210706-004414%402x.png "WX20210615-081414.jpg")
 
 #### 三、生成代码：
 
 保存海报，然后点击`代码`，可以查看相关的语言调⽤代码。
 
-![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.1/WX20210706-004444%402x.png "WX20210615-081414.jpg")
+![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.0/WX20210706-004444%402x.png "WX20210615-081414.jpg")
 
 
 ### 参与贡献
