@@ -103,6 +103,11 @@ def db_update_poster(id: int, code: str, name: str, preview: str, json: str):
 
 
 def db_delete_poster(id: int):
+    """
+    删除海报
+    :param id:
+    :return:
+    """
     with conn() as con:
         c = con.cursor()
         params = [C.STATUS_DELETE, id]
