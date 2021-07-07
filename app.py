@@ -30,6 +30,7 @@ class BaseHandler(RequestHandler):
         print('options')
 
     def check_token(self):
+        print('check_token', self.request.path)
         t = self.request.headers['token'] if 'token' in self.request.headers else None
         if not t:
             self.write(R.expire('没有token').json())
@@ -59,7 +60,7 @@ class ApiLoginHandler(BaseHandler):
 class ApiUserPostersHandler(BaseHandler):
 
     def prepare(self):
-        # self.check_token()  # 检查token是否有效
+        self.check_token()  # 检查token是否有效
         ...
 
     def get(self):
@@ -159,7 +160,8 @@ def make_app():
 
 
 if __name__ == "__main__":
+    key.init()  # key 初始化
     app = make_app()
     app.listen(port=9001, address='0.0.0.0')
-    print(f'on port {9001}')
+    print(f'http://0.0.0.0:9001/')
     tornado.ioloop.IOLoop.current().start()
