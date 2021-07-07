@@ -118,3 +118,5 @@ dmypy.json
 keys.txt
 db
 static/storage
+
+build.sh
