@@ -4,7 +4,7 @@
 
 **fastposter海报生成器，一分钟完成海报开发。**
 
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v1.4.1)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v1.4.2)
 - 只要一个 [Github Star](https://github.com/psoho/fast-poster) 就可以鼓励作者尽快完成 `剩下的 15%`
 - 只要一个 [Gitee Star](https://gitee.com/psoho/fast-poster) 就可以鼓励作者尽快完成 `剩下的 15%`
 
@@ -86,3 +86,8 @@ docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 
 客户端调用支持`Java` `Python` `PHP` `cURL` `JS` 等可以发送`HTTP`请求的语言.
 
+### 性能测试
+
+```bash
+wrk -d 6s http://127.0.0.1:9001/view/5b0b06feeb582fdce2973a4ae227b2f0.png
+```

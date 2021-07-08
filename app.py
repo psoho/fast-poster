@@ -1,6 +1,4 @@
 import base64
-
-import json
 import os
 
 import tornado.ioloop
@@ -9,8 +7,9 @@ from tornado.web import RequestHandler, StaticFileHandler, Application
 import C
 import R
 import dao
-import poster
+import json
 import key
+import poster
 import store
 
 
@@ -113,26 +112,35 @@ class ApiLinkHandler(RequestHandler):
         self.write(dao.get_share_link(param))
 
 
-class ApiViewHandler(RequestHandler):
+class BaseDrawHandler(RequestHandler):
 
-    def get(self, code):
+    async def async_drawio(self, data):
+        return poster.drawio(data)
+
+    def drawio(self, data):
+        return poster.drawio(data)
+
+
+class ApiViewHandler(BaseDrawHandler):
+
+    async def get(self, code):
         code = code[:code.index('.')]
         data = dao.find_share_data(code)
         if data is None:
             print('不好意思，海报不见了')
-        buf, mimetype = poster.drawio(data)
+        buf, mimetype = await self.async_drawio(data)
         self.set_header('Content-Type', mimetype)
         self.write(buf.getvalue())
 
 
-class ApiB64Handler(RequestHandler):
+class ApiB64Handler(BaseDrawHandler):
 
     def get(self, code):
         code = code[:code.index('.')]
         data = dao.find_share_data(code)
         if data is None:
             print('不好意思，海报不见了')
-        buf, mimetype = poster.drawio(data)
+        buf, mimetype = self.drawio(data)
         # self.set_header('Content-Type', mimetype)
         base64_data = base64.b64encode(buf.read())
         self.write(base64_data.decode())

@@ -1,4 +1,4 @@
-FROM python:3.7-slim
+FROM python:3.9.6-slim
 
 LABEL maintainer="thomastangweixin@163.com"
 LABEL version="1.4.1"
