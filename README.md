@@ -19,12 +19,22 @@
 
 #### 一、启动服务
 
-1. 运行命令: 
+1. 通过docker启动:
 ```bash
 docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 ```
 
-2.  打开浏览器: [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
+2. 通过代码启动: 
+
+```bash
+# 安装依赖 
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+
+# 启动应用（需要在当前代码目录运行）
+python app.py
+```
+
+3.  打开浏览器: [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
 
 #### 二、编辑海报
 
