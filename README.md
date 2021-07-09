@@ -31,7 +31,7 @@ docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
 # 启动应用（需要在当前代码目录运行）
-python app.py
+python app.py -k ApfrIzxCoK1DwNZO -s EJCwlrnv6QZ0PCdvrWGi
 ```
 
 3.  打开浏览器: [http://127.0.0.1:9001/](http://127.0.0.1:9001/)

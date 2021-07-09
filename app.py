@@ -17,10 +17,12 @@ class BaseHandler(RequestHandler):
 
     def set_default_headers(self) -> None:
         origin_url = self.request.headers.get('Origin')
+        if not origin_url:
+            origin_url = '*'
         # self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
+        self.set_header('Server', 'fastposter')
         self.set_header('Access-Control-Allow-Credentials', 'true')
-        if origin_url:
-            self.set_header('Access-Control-Allow-Origin', origin_url)
+        self.set_header('Access-Control-Allow-Origin', origin_url)
         self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type')
 
     def options(self):
