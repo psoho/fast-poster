@@ -130,6 +130,7 @@ class ApiViewHandler(BaseDrawHandler):
         data = dao.find_share_data(code)
         if data is None:
             print('不好意思，海报不见了')
+            return
         buf, mimetype = await self.async_drawio(data)
         self.set_header('Content-Type', mimetype)
         self.write(buf.getvalue())
@@ -142,6 +143,7 @@ class ApiB64Handler(BaseDrawHandler):
         data = dao.find_share_data(code)
         if data is None:
             print('不好意思，海报不见了')
+            return
         buf, mimetype = self.drawio(data)
         # self.set_header('Content-Type', mimetype)
         base64_data = base64.b64encode(buf.read())
