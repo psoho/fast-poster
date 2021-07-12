@@ -34,7 +34,7 @@ class BaseHandler(RequestHandler):
         print('check_token', self.request.path)
         t = self.request.headers['token'] if 'token' in self.request.headers else None
         if not t:
-            self.write(R.expire('没有token').json())
+            self.write(R.expire('not token').json())
             return self.finish()  # 标识请求已经结束
         dbtoken = dao.query_token(t)
         if not dbtoken:
@@ -53,7 +53,8 @@ class ApiLoginHandler(BaseHandler):
             dao.save_token(token)
             print('ok')
             self.write(
-                R.ok('登录成功').add('token', token).add('user', {'accessKey': accessKey, 'secretKey': secretKey}).json())
+                R.ok('login success.').add('token', token).add('user',
+                                                               {'accessKey': accessKey, 'secretKey': secretKey}).json())
         else:
             self.write(R.error('accessKey or secretKey not match!').json())
 
@@ -75,7 +76,6 @@ class ApiUserPostersHandler(BaseHandler):
         self.write(R.ok().json())
 
     def post(self):
-        print('新增或者修改海报')
         data = json.loads(self.request.body)
         id = dao.save_or_update_user_poster(data)
         self.write(R.ok().add("id", id).json())
@@ -89,6 +89,9 @@ class ApiUserPostersCopyHandler(BaseHandler):
 
 
 class ApiPreviewHandler(BaseHandler):
+    """
+    海报预览组件
+    """
 
     def post(self):
         data = json.loads(self.request.body)
