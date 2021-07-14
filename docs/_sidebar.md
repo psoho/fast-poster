@@ -1,5 +1,6 @@
 * 入门
 
+  * [项目介绍](README.md)
   * [快速开始](quickstart.md)
   * [示例代码](example.md)
 
