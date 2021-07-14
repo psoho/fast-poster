@@ -17,10 +17,12 @@ class BaseHandler(RequestHandler):
 
     def set_default_headers(self) -> None:
         origin_url = self.request.headers.get('Origin')
+        if not origin_url:
+            origin_url = '*'
         # self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
+        self.set_header('Server', 'fastposter')
         self.set_header('Access-Control-Allow-Credentials', 'true')
-        if origin_url:
-            self.set_header('Access-Control-Allow-Origin', origin_url)
+        self.set_header('Access-Control-Allow-Origin', origin_url)
         self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type')
 
     def options(self):
@@ -32,7 +34,7 @@ class BaseHandler(RequestHandler):
         print('check_token', self.request.path)
         t = self.request.headers['token'] if 'token' in self.request.headers else None
         if not t:
-            self.write(R.expire('没有token').json())
+            self.write(R.expire('not token').json())
             return self.finish()  # 标识请求已经结束
         dbtoken = dao.query_token(t)
         if not dbtoken:
@@ -51,7 +53,8 @@ class ApiLoginHandler(BaseHandler):
             dao.save_token(token)
             print('ok')
             self.write(
-                R.ok('登录成功').add('token', token).add('user', {'accessKey': accessKey, 'secretKey': secretKey}).json())
+                R.ok('login success.').add('token', token).add('user',
+                                                               {'accessKey': accessKey, 'secretKey': secretKey}).json())
         else:
             self.write(R.error('accessKey or secretKey not match!').json())
 
@@ -73,7 +76,6 @@ class ApiUserPostersHandler(BaseHandler):
         self.write(R.ok().json())
 
     def post(self):
-        print('新增或者修改海报')
         data = json.loads(self.request.body)
         id = dao.save_or_update_user_poster(data)
         self.write(R.ok().add("id", id).json())
@@ -87,6 +89,9 @@ class ApiUserPostersCopyHandler(BaseHandler):
 
 
 class ApiPreviewHandler(BaseHandler):
+    """
+    海报预览组件
+    """
 
     def post(self):
         data = json.loads(self.request.body)
@@ -128,6 +133,7 @@ class ApiViewHandler(BaseDrawHandler):
         data = dao.find_share_data(code)
         if data is None:
             print('不好意思，海报不见了')
+            return
         buf, mimetype = await self.async_drawio(data)
         self.set_header('Content-Type', mimetype)
         self.write(buf.getvalue())
@@ -140,6 +146,7 @@ class ApiB64Handler(BaseDrawHandler):
         data = dao.find_share_data(code)
         if data is None:
             print('不好意思，海报不见了')
+            return
         buf, mimetype = self.drawio(data)
         # self.set_header('Content-Type', mimetype)
         base64_data = base64.b64encode(buf.read())

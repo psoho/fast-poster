@@ -4,7 +4,7 @@
 
 **fastposter海报生成器，一分钟完成海报开发。**
 
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v1.4.2)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v1.4.3)
 - 只要一个 [Github Star](https://github.com/psoho/fast-poster) 就可以鼓励作者尽快完成 `剩下的 15%`
 - 只要一个 [Gitee Star](https://gitee.com/psoho/fast-poster) 就可以鼓励作者尽快完成 `剩下的 15%`
 
@@ -14,6 +14,33 @@
 - 易用：无需名师指导，组件丰富、支持拖拽、复制、所见即所得、下载等功能
 - 强大：不惧怕设计师更改海报设计，无需更改代码，从容应对UI变更
 - 高效：只需拖拽组件就能生成海报的调用代码，极大降低开发人员的工作量
+
+### Java代码调用
+
+```java
+// Java生成海报
+public static void main(String[] args) throws IOException {
+
+  // 创建海报客户端对象
+  FastPosterClient client = new FastPosterClient("https://poster.prodapi.cn/", "ApfrIzxCoK1DwNZO", "EJCwlrnv6QZ0PCdvrWGi");
+
+  // 构造海报参数
+  HashMap<String, String> params = new HashMap<>();
+  // 暂未指定任何动态参数
+  params.put("nickname", "笑傲江湖");
+
+  // 海报ID
+  String posterId = "25";
+
+  // 获取下载地址
+  String url = client.getUrl(posterId, params);
+  System.out.println("url=" + url);
+
+  // 保存到本地
+  client.saveToPath(url, "temp.png");
+
+}
+```
 
 ### 三步完成海报开发工作
 
@@ -31,7 +58,7 @@ docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
 # 启动应用（需要在当前代码目录运行）
-python app.py
+python app.py -k ApfrIzxCoK1DwNZO -s EJCwlrnv6QZ0PCdvrWGi
 ```
 
 3.  打开浏览器: [http://127.0.0.1:9001/](http://127.0.0.1:9001/)

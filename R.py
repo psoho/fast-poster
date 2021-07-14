@@ -33,15 +33,15 @@ class R():
         self.json()
 
 
-def ok(msg='操作成功'):
+def ok(msg='success.'):
     return R().add('msg', msg)
 
 
-def error(msg='操作失败'):
+def error(msg='failure!'):
     return R(400).add('msg', msg)
 
 
-def expire(msg='token失效'):
+def expire(msg='token expired.'):
     return R(401).add('msg', msg)
 
 
