@@ -7,7 +7,7 @@
 - 简单、易用、快速、强大
 - 无需编写复杂的绘图代码
 - 经历众多电商级生产环境考验
-- 众多语言支持 Java Python PHP JS 等
+- 众多语言支持 Java Python Golang PHP JS 等
 
 [GitHub](https://github.com/psoho/fast-poster)
 [Gitee](https://gitee.com/psoho/fast-poster)

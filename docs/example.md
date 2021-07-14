@@ -299,6 +299,56 @@ echo "图片保存完成\n";
 
 ## Golang
 
-```golang
+```go
 
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+	"strings"
+)
+
+func main() {
+
+	url := "http://localhost:9001/api/link"
+	method := "POST"
+
+	payload := strings.NewReader(`{
+    "mainUrl": "http://127.0.0.1:9001/storage/upload/bc7fd728cf40ef1c.jpg",
+    "payPrice": "388",
+    "qrcode": "https://poster.prodapi.cn/#from=qrcode",
+    "discountPrice": "9.9",
+    "desc": "泸州老窖 特曲 52度 浓香型白酒 500ml （百年品牌 泸州老窖荣誉出品）（新老包装随机发货）",
+    "realPrice": "388",
+    "accessKey": "ApfrIzxCoK1DwNZO",
+    "secretKey": "EJCwlrnv6QZ0PCdvrWGi",
+    "posterId": 2
+}`)
+
+	client := &http.Client {
+	}
+	req, err := http.NewRequest(method, url, payload)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	req.Header.Add("Content-Type", "application/json")
+
+	res, err := client.Do(req)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer res.Body.Close()
+
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(string(body))
+}
 ```
