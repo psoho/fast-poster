@@ -10,7 +10,7 @@ docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 
 ## 编辑海报
 
-打开海报编辑器 [http://localhost:9001/](http://localhost:9001/)
+打开海报编辑器[http://localhost:9001/](http://localhost:9001/) ，或者打开[在线示例](https://poster.prodapi.cn/#/from=docs)
 
 * 上传背景图
 * 添加所需组件
