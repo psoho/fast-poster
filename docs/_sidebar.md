@@ -7,7 +7,7 @@
 * 指南
 
   * [部署](deploy.md)
-  * [字体说明](fonts.md)
+  * [字体](fonts.md)
 
 * 进阶
 
