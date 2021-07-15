@@ -23,7 +23,7 @@ docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 
 点击左侧`预览`按钮，查看海报实际生成效果
 
-!> 由于使用海报使用`Pillow`生成，效果与设计器有些许偏差，请以`预览`的实际效果为准
+!> 由于海报使用`Pillow`生成，效果与设计器有些许偏差，请以`预览`的实际效果为准
 
 ![](_media/images/WX20210714-220025@2x.png)
 
