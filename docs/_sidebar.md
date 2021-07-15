@@ -15,6 +15,7 @@
   * [后端](python.md)
   * [Pillow](pillow.md)
   * [Tornado](tornado.md)
+  * [性能优化](performance.md)
   * [前端](vue.md)
   * [控件](componse.md)
 
