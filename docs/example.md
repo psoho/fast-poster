@@ -352,3 +352,9 @@ func main() {
 	fmt.Println(string(body))
 }
 ```
+
+## 验证
+
+可以将生成的代码，直接放到`在线环境`中运行检验。以下是一些在线环境地址。
+
+- [https://www.dooccn.com/](https://www.dooccn.com/)
