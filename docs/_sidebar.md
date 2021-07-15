@@ -6,6 +6,7 @@
   
 * 指南
 
+  * [源码运行](source.md)
   * [部署](deploy.md)
   * [字体](fonts.md)
 
