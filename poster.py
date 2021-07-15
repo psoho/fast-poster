@@ -42,13 +42,9 @@ def fetchImg(url=None):
         return fetchImg('/img/no-img.jpg')
 
 
-def drawImg(draw, item, bg):
+def drawImg(draw, d, bg):
     """绘制图片"""
-    url = item['v']
-    w = item['w']
-    h = item['h']
-    x = item['x']
-    y = item['y']
+    url, w, h, x, y = d['v'], d['w'], d['h'], d['x'], d['y']
     try:
         img = fetchImg(url)
         if img == None:
@@ -67,7 +63,7 @@ def drawBg(item):
     w = item['w']
     h = item['h']
     c = item['bgc']
-    if c == '': c = '#fff'
+    c = '#fafbfc' if c == '' else c
     if not url.strip():
         img = Image.new('RGB', (w, h), c)
     else:
@@ -83,6 +79,7 @@ def getFont(item):
     size = item['s']
     if fn == "":
         # fn = 'Alibaba-Emoji.ttf'
+        # fn = 'Alibaba-PuHuiTi-Light.ttf'
         fn = 'Alibaba-PuHuiTi-Regular.otf'
     font = 'fonts/' + fn
     return ImageFont.truetype(font, size)
@@ -118,7 +115,6 @@ def drawText(draw, item, bg):
     t = wrap_text(v, font, w)
     draw.text((0, 0), '\n'.join(t), fill=c, font=font)
     # 如果是图片绘制，则要添加一下图片
-    # img.show()
     if img is not None:
         bg.paste(img, (x, y), img)
 
@@ -226,19 +222,11 @@ def drawio(data):
     quality = data['quality']
     buf = BytesIO()
     img.save(buf, type, quality=quality, progressive=True)
-    # img.save(buf, type, progressive=True)
-    # img.save(buf, type)
     buf.seek(0)
     return buf, mimetype
 
 
 def drawmini(data, scale=0.5):
-    """
-    生成缩略图
-    :param data:
-    :param scale:
-    :return:
-    """
     im = draw(data)
     w = im.size[0]
     h = im.size[1]
