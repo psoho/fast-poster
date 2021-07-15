@@ -14,7 +14,7 @@ class R():
         返回json数据
         :return:
         """
-        return json.dumps(self.d)
+        return json.dumps(self.d, ensure_ascii=False)   # 不转成ASCII码
 
     def add(self, key, value):
         """

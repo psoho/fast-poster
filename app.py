@@ -168,8 +168,7 @@ def make_app():
         (r"/view/(.+)", ApiViewHandler),
         (r"/b64/(.+)", ApiB64Handler),
         ## 静态化文件特殊处理
-        (r'^/(.*)$', StaticFileHandler,
-         {"path": os.path.join(os.path.dirname(__file__), "static"), "default_filename": "index.html"}),
+        (r'^/(.*)$', StaticFileHandler, {"path": os.path.join(os.path.dirname(__file__), "static"), "default_filename": "index.html"}),
 
     ], **settings)
 
