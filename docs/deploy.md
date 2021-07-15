@@ -2,7 +2,7 @@
 
 ## 公网部署
 
-如果需要部署到公网环境，通过`公网ip`访问，需要设置`POSTER_URI_PREFIX`
+部署到公网环境，需要设置变量`POSTER_URI_PREFIX`，把`127.0.0.1`替换成`服务器的IP`即可
 
 ```bash
 docker run -e POSTER_URI_PREFIX=http://127.0.0.1:9001/ --name fast-poster -p 9001:9001 tangweixin/fast-poster
@@ -23,6 +23,8 @@ services:
 ```
 
 ## 账号密码
+
+自定义账号密码，需要设置变量`ACCESS_KEY` `SECRET_KEY`
 
 ```bash
 docker run -e ACCESS_KEY=ApfrIzxCoK1DwNZO -e SECRET_KEY=EJCwlrnv6QZ0PCdvrWGi --name fast-poster -p 9001:9001 tangweixin/fast-poster 
@@ -47,6 +49,8 @@ services:
 
 ## 数据持久化
 
+持久化数据和图片资源，需要挂载目录`-v $PWD/fastposter/db:/app/db` `-v $PWD/fastposter/storage:/app/static/storage`
+
 ```bash
 docker run -v $PWD/fastposter/db:/app/db -v $PWD/fastposter/storage:/app/static/storage --name fast-poster -p 9001:9001 tangweixin/fast-poster
 ```
@@ -68,7 +72,7 @@ services:
 
 ```
 
-## 完整
+## 完整配置
 
 ```yaml
 version: '3'
