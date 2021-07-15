@@ -80,7 +80,7 @@ services:
 
   fastposter:
     container_name: fastposter
-    image: tangweixin/fast-poster:1.4.3
+    image: tangweixin/fast-poster
     restart: on-failure
     ports:
       - 9001:9001
