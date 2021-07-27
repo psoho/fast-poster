@@ -108,7 +108,7 @@ class ApiUploadHandler(BaseHandler):
         self.write(R.ok().add("url", path).json())
 
 
-class ApiLinkHandler(RequestHandler):
+class ApiLinkHandler(BaseHandler):
 
     def post(self):
         param = json.loads(self.request.body)
@@ -117,7 +117,7 @@ class ApiLinkHandler(RequestHandler):
         self.write(dao.get_share_link(param))
 
 
-class BaseDrawHandler(RequestHandler):
+class BaseDrawHandler(BaseHandler):
 
     async def async_drawio(self, data):
         return poster.drawio(data)
