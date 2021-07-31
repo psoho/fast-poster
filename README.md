@@ -2,7 +2,7 @@
 
 > 一分钟完成海报开发任务
 
-** 欢迎点亮小星星，加速项目迭代更新 **
+**欢迎点亮小星星，加速项目迭代更新**
 
 - 开发文档：[https://poster.prodapi.cn/docs/](https://poster.prodapi.cn/docs/)
 - 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v1.4.5)
