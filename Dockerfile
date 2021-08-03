@@ -1,7 +1,7 @@
 FROM python:3.9.6-slim
 
 LABEL maintainer="thomastangweixin@163.com"
-LABEL version="1.4.5"
+LABEL version="1.5.0"
 
 ADD fastposter.sh key.py app.py C.py dao.py poster.py R.py store.py requirements.txt /app/
 COPY static/ /app/static/
@@ -12,8 +12,8 @@ EXPOSE 9001
 VOLUME /app/static
 
 WORKDIR /app
-#RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+#RUN pip install -r requirements.txt
 
 ENV ACCESS_KEY="ApfrIzxCoK1DwNZO"
 ENV SECRET_KEY="EJCwlrnv6QZ0PCdvrWGi"
