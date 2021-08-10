@@ -194,8 +194,8 @@ def draw(data):
         if 'qrcode' == type:
             # 特殊处理(判断是否是小程序码)，兼容之前的程序(一套模板兼容二维码和小程序码)
             url = item.get('v', '')
-            if url.startswith('wxacode:'):
-                url = url[8:]
+            if url.startswith('img:'):
+                url = url[4:]
                 item['v'] = url
                 # print("小程序码特殊处理: url=" + url)
                 drawImg(draw, item, bg=img)
