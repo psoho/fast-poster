@@ -89,9 +89,6 @@ class ApiUserPostersCopyHandler(BaseHandler):
 
 
 class ApiPreviewHandler(BaseHandler):
-    """
-    海报预览组件
-    """
 
     def post(self):
         data = json.loads(self.request.body)
@@ -175,7 +172,17 @@ def make_app():
 
 if __name__ == "__main__":
     key.init()  # key 初始化
+    banner = '''  __              _                       _               
+     / _|            | |                     | |              
+    | |_   __ _  ___ | |_  _ __    ___   ___ | |_   ___  _ __ 
+    |  _| / _` |/ __|| __|| '_ \  / _ \ / __|| __| / _ \| '__|
+    | |  | (_| |\__ \| |_ | |_) || (_) |\__ \| |_ |  __/| |   
+    |_|   \__,_||___/ \__|| .__/  \___/ |___/ \__| \___||_|   
+                          | |                                 
+                          |_|                                 
+                                        fastposter(v1.5.2)     '''
     app = make_app()
+    print(banner)
     app.listen(port=9001, address='0.0.0.0')
     print(f'http://0.0.0.0:9001/')
     tornado.ioloop.IOLoop.current().start()
