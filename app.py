@@ -180,7 +180,8 @@ if __name__ == "__main__":
     |_|   \__,_||___/ \__|| .__/  \___/ |___/ \__| \___||_|   
                           | |                                 
                           |_|                                 
-                                        fastposter(v1.5.3)     '''
+                                        fastposter(v1.5.4)     
+                                 https://poster.prodapi.cn/   '''
     app = make_app()
     print(banner)
     app.listen(port=9001, address='0.0.0.0')

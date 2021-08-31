@@ -5,7 +5,7 @@
 **欢迎点亮小星星，加速项目迭代更新**
 
 - 开发文档：[https://poster.prodapi.cn/docs/](https://poster.prodapi.cn/docs/)
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v1.5.3)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v1.5.4)
 - [代码仓库-github](https://github.com/psoho/fast-poster)
 - [代码仓库-gitee](https://gitee.com/psoho/fast-poster)
 
@@ -26,3 +26,6 @@ docker run --name fast-poster -p 9001:9001 tangweixin/fast-poster
 ![输入图片说明](https://fastposter.oss-cn-shanghai.aliyuncs.com/v1.4.0/WX20210707-232717%402x.png)
 
 
+### 追星之路
+
+[![Stargazers over time](https://starchart.cc/psoho/fast-poster.svg)](https://starchart.cc/psoho/fast-poster)
