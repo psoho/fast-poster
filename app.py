@@ -150,6 +150,41 @@ class ApiB64Handler(BaseDrawHandler):
         self.write(base64_data.decode())
 
 
+class QrcodeHandler(BaseHandler):
+
+    def get(self, v:str):
+        data = {
+            "w": 200,
+            "h": 200,
+            "bgc": "#ffffff",
+            "type": "jpeg",
+            "quality": 80,
+            "bgUrl": "",
+            "items": [
+                {
+                    "t": "qrcode",
+                    "name": "二维码",
+                    "uuid": "yI4GJ4a9",
+                    "x": 10,
+                    "y": 10,
+                    "w": 180,
+                    "h": 180,
+                    "z": 1,
+                    "s": 15,
+                    "c": f"#010203",
+                    "bgc": "#ffffff",
+                    "v": f"{v}",
+                    "vd": "qrcode",
+                    "fn": "",
+                    "st": 0,
+                    "p": 0
+                }
+            ]
+        }
+        buf, mimetype = poster.drawio(data)
+        self.set_header('Content-Type', mimetype)
+        self.write(buf.getvalue())
+
 def make_app():
     settings = {
         'debug': True
@@ -162,6 +197,7 @@ def make_app():
         (r"/api/preview", ApiPreviewHandler),
         (r"/api/upload", ApiUploadHandler),
         (r"/api/link", ApiLinkHandler),
+        (f"/api/qr/(.+)", QrcodeHandler),
         (r"/view/(.+)", ApiViewHandler),
         (r"/b64/(.+)", ApiB64Handler),
         ## 静态化文件特殊处理
@@ -171,7 +207,7 @@ def make_app():
 
 
 if __name__ == "__main__":
-    key.init()  # key 初始化
+    key.init()
     banner = '''  __              _                       _               
      / _|            | |                     | |              
     | |_   __ _  ___ | |_  _ __    ___   ___ | |_   ___  _ __ 
@@ -180,7 +216,7 @@ if __name__ == "__main__":
     |_|   \__,_||___/ \__|| .__/  \___/ |___/ \__| \___||_|   
                           | |                                 
                           |_|                                 
-                                        fastposter(v1.5.4)     
+                                        fastposter(v1.6.0)     
                                  https://poster.prodapi.cn/   '''
     app = make_app()
     print(banner)
