@@ -115,8 +115,7 @@ dmypy.json
 .pyre/
 .DS_Store
 .idea
-keys.txt
-db
 static/storage
 
 build.sh
+cache.sqlite
