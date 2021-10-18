@@ -42,3 +42,13 @@ docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 [![Stargazers over time](https://starchart.cc/psoho/fast-poster.svg)](https://starchart.cc/psoho/fast-poster)
 
+### 捐赠
+
+如果你觉得 `fastposter` 对你有帮助，或者想对我们微小的工作一点支持，欢迎给我们[捐赠](https://poster.prodapi.cn/docs/#/donate)
+
+### 社区
+
+进群加作者微信，请备注来自`fastposter`。
+
+![输入图片说明](https://poster.prodapi.cn/docs/_media/images/qrcode.jpg)
+

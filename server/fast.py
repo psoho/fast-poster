@@ -197,20 +197,20 @@ def make_app(p):
         'debug': True
     }
     return Application([
-        (f"{p}/api/login", ApiLoginHandler),
-        (f"{p}/api/user/posters", ApiUserPostersHandler),
-        (f"{p}/api/user/posters/copy/(.+)", ApiUserPostersCopyHandler),
-        (f"{p}/api/user/posters/(.+)", ApiUserPostersHandler),
-        (f"{p}/api/preview", ApiPreviewHandler),
-        (f"{p}/api/upload", ApiUploadHandler),
-        (f"{p}/api/link", ApiLinkHandler),
-        (f"{p}/api/qr/(.+)", QrcodeHandler),
-        (f"{p}/view/(.+)", ApiViewHandler),
-        (f"{p}/b64/(.+)", ApiB64Handler),
+        (f"{p}api/login", ApiLoginHandler),
+        (f"{p}api/user/posters", ApiUserPostersHandler),
+        (f"{p}api/user/posters/copy/(.+)", ApiUserPostersCopyHandler),
+        (f"{p}api/user/posters/(.+)", ApiUserPostersHandler),
+        (f"{p}api/preview", ApiPreviewHandler),
+        (f"{p}api/upload", ApiUploadHandler),
+        (f"{p}api/link", ApiLinkHandler),
+        (f"{p}api/qr/(.+)", QrcodeHandler),
+        (f"{p}view/(.+)", ApiViewHandler),
+        (f"{p}b64/(.+)", ApiB64Handler),
         ## 静态化文件特殊处理
-        (f'{p}/(store/.*)$', StaticFileHandler, {"path": join(dirname(__file__), "data")}),
-        (f'{p}/resource/(.*)$', MyStaticFileHandler, {"path": join(dirname(__file__), "resource")}),
-        (f'{p}/(.*)$', StaticFileHandler, {"path": join(dirname(__file__), path), "default_filename": "index.html"})
+        (f'{p}(store/.*)$', StaticFileHandler, {"path": join(dirname(__file__), "data")}),
+        (f'{p}resource/(.*)$', MyStaticFileHandler, {"path": join(dirname(__file__), "resource")}),
+        (f'{p}(.*)$', StaticFileHandler, {"path": join(dirname(__file__), path), "default_filename": "index.html"})
 
     ], **settings)
 
