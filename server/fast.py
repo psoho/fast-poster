@@ -1,5 +1,6 @@
 import base64
 import os
+import re
 from os.path import join, dirname
 
 import tornado.ioloop
@@ -190,26 +191,26 @@ class MyStaticFileHandler(StaticFileHandler, BaseHandler):
     pass
 
 
-def make_app():
+def make_app(p):
     path = "static" if C.indocker() else "../design/dist"
     settings = {
         'debug': True
     }
     return Application([
-        (r"/api/login", ApiLoginHandler),
-        (r"/api/user/posters", ApiUserPostersHandler),
-        (r"/api/user/posters/copy/(.+)", ApiUserPostersCopyHandler),
-        (r"/api/user/posters/(.+)", ApiUserPostersHandler),
-        (r"/api/preview", ApiPreviewHandler),
-        (r"/api/upload", ApiUploadHandler),
-        (r"/api/link", ApiLinkHandler),
-        (f"/api/qr/(.+)", QrcodeHandler),
-        (r"/view/(.+)", ApiViewHandler),
-        (r"/b64/(.+)", ApiB64Handler),
+        (f"{p}/api/login", ApiLoginHandler),
+        (f"{p}/api/user/posters", ApiUserPostersHandler),
+        (f"{p}/api/user/posters/copy/(.+)", ApiUserPostersCopyHandler),
+        (f"{p}/api/user/posters/(.+)", ApiUserPostersHandler),
+        (f"{p}/api/preview", ApiPreviewHandler),
+        (f"{p}/api/upload", ApiUploadHandler),
+        (f"{p}/api/link", ApiLinkHandler),
+        (f"{p}/api/qr/(.+)", QrcodeHandler),
+        (f"{p}/view/(.+)", ApiViewHandler),
+        (f"{p}/b64/(.+)", ApiB64Handler),
         ## 静态化文件特殊处理
-        (f'/(store/.*)$', StaticFileHandler, {"path": join(dirname(__file__), "data")}),
-        (f'/resource/(.*)$', MyStaticFileHandler, {"path": join(dirname(__file__), "resource")}),
-        (f'/(.*)$', StaticFileHandler, {"path": join(dirname(__file__), path), "default_filename": "index.html"})
+        (f'{p}/(store/.*)$', StaticFileHandler, {"path": join(dirname(__file__), "data")}),
+        (f'{p}/resource/(.*)$', MyStaticFileHandler, {"path": join(dirname(__file__), "resource")}),
+        (f'{p}/(.*)$', StaticFileHandler, {"path": join(dirname(__file__), path), "default_filename": "index.html"})
 
     ], **settings)
 
@@ -224,10 +225,15 @@ if __name__ == "__main__":
     |_|   \__,_||___/ \__|| .__/  \___/ |___/ \__| \___||_|   
                           | |                                 
                           |_|                                 
-                                        fastposter(v2.0.0)     
+                                        fastposter(v2.1.0)     
                                  https://poster.prodapi.cn/   '''
-    app = make_app()
+    PORT=5000
     print(banner)
-    app.listen(port=5000, address='0.0.0.0')
     print(f'http://0.0.0.0:5000/')
+    uri = os.environ.get('POSTER_URI_PREFIX', f'http://0.0.0.0:{PORT}/')
+    g = re.search(r'http[s]?://.*?(/.*)', uri)
+    web_context_path = '/' if not g else g.group(1)
+    app = make_app(web_context_path)
+    app.listen(port=PORT, address='0.0.0.0')
     tornado.ioloop.IOLoop.current().start()
+
