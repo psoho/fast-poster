@@ -236,23 +236,19 @@ def copy_user_poster(id):
     return None
 
 
-def get_share_link(param):
-    """获取海报分享链接"""
-    code = C.md5(param)
-    url = f'/view/{code}.png'
-    url = C.add_url_prefix(url)
+def get_share_link(code, param):
     s = query_user_share(code)
     if s:
-        return R.ok().add('url', url).json()
+        return True
     # 需要保存链接
-    poster_id = int(param['posterId'])
-    p = query_user_poster(poster_id)
+    posterId = int(param['posterId'])
+    p = query_user_poster(posterId)
     if p is None:
         print('海报不存在')
         return R.error('海报不存在').json()
     # print('保存海报参数')
-    db_save_share(code, poster_id, json.dumps(param))
-    return R.ok().add('url', url).json()
+    db_save_share(code, posterId, json.dumps(param))
+    return True
 
 
 def find_share_data(code):

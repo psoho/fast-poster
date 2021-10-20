@@ -33,7 +33,7 @@ class BaseHandler(RequestHandler):
         print('options')
 
     def check_token(self):
-        print('check_token', self.request.path)
+        # print('check_token', self.request.path)
         t = self.request.headers['token'] if 'token' in self.request.headers else None
         if not t:
             self.write(R.expire('not token').json())
@@ -43,20 +43,22 @@ class BaseHandler(RequestHandler):
             self.write(R.expire().json())
             return self.finish()
 
+    def json(self, r: R):
+        self.set_header('Content-Type', 'application/json;charset=UTF-8')
+        self.write(r.json())
+
 
 class ApiLoginHandler(BaseHandler):
 
     def post(self):
         accessKey = self.get_body_argument('accessKey')
         secretKey = self.get_body_argument('secretKey')
-        print(f'accessKey={accessKey}, secretKey={secretKey}')
+        print(f'login: accessKey={accessKey}, secretKey={secretKey}')
         if key.check(accessKey, secretKey):
             token = C.code(32)
             dao.save_token(token)
-            print('ok')
-            self.write(
-                R.ok('login success.').add('token', token).add('user',
-                                                               {'accessKey': accessKey, 'secretKey': secretKey}).json())
+            # print('ok')
+            self.write(R.ok('login success.').add('token', token).add('user', {'accessKey': accessKey, 'secretKey': secretKey}).json())
         else:
             self.write(R.error('accessKey or secretKey not match!').json())
 
@@ -107,13 +109,30 @@ class ApiUploadHandler(BaseHandler):
         self.write(R.ok().add("url", path).json())
 
 
+# class ApiLinkHandler(BaseHandler):
+#
+#     def post(self):
+#         param = json.loads(self.request.body)
+#         if not key.check(param['accessKey'], param['secretKey']):
+#             self.write(R.error('accessKey or secretKey not match').json())
+#         self.write(dao.get_share_link(param))
+
+
 class ApiLinkHandler(BaseHandler):
 
     def post(self):
         param = json.loads(self.request.body)
+        # TODO: use http's Authorization header
         if not key.check(param['accessKey'], param['secretKey']):
             self.write(R.error('accessKey or secretKey not match').json())
-        self.write(dao.get_share_link(param))
+        del param['accessKey']
+        del param['secretKey']
+        code = C.md5(param, 16)
+        if dao.get_share_link(code, param):
+            url = f"{uri}/v/{code}".replace('//v', '/v')
+            self.json(R.ok().add('url', url))
+        else:
+            self.json(R.error(f'the poster [{param["posterId"]}] not exits.'))
 
 
 class BaseDrawHandler(BaseHandler):
@@ -125,15 +144,30 @@ class BaseDrawHandler(BaseHandler):
         return poster.drawio(data)
 
 
-class ApiViewHandler(BaseDrawHandler):
+# class ApiViewHandler(BaseDrawHandler):
+#
+#     async def get(self, code):
+#         code = code[:code.index('.')]
+#         data = dao.find_share_data(code)
+#         if data is None:
+#             print('不好意思，海报不见了')
+#             return
+#         buf, mimetype = await self.async_drawio(data)
+#         self.set_header('Content-Type', mimetype)
+#         self.write(buf.getvalue())
 
-    async def get(self, code):
-        code = code[:code.index('.')]
-        data = dao.find_share_data(code)
+class ApiViewHandler(BaseHandler):
+
+    def get(self, code: str):
+        c = code.split('.')
+        data = dao.find_share_data(c[0])
         if data is None:
-            print('不好意思，海报不见了')
+            print('no poster here!')
+            self.write(R.error('no poster here!'))
             return
-        buf, mimetype = await self.async_drawio(data)
+        if len(c) == 2 and (c[1] == 'png'):
+            data['type'] = c[1]
+        buf, mimetype = poster.drawio(data)
         self.set_header('Content-Type', mimetype)
         self.write(buf.getvalue())
 
@@ -205,7 +239,7 @@ def make_app(p):
         (f"{p}api/upload", ApiUploadHandler),
         (f"{p}api/link", ApiLinkHandler),
         (f"{p}api/qr/(.+)", QrcodeHandler),
-        (f"{p}view/(.+)", ApiViewHandler),
+        (f"{p}v/(.+)", ApiViewHandler),
         (f"{p}b64/(.+)", ApiB64Handler),
         ## 静态化文件特殊处理
         (f'{p}(store/.*)$', StaticFileHandler, {"path": join(dirname(__file__), "data")}),
@@ -218,19 +252,20 @@ def make_app(p):
 if __name__ == "__main__":
     key.init()
     banner = '''  __              _                       _               
-     / _|            | |                     | |              
-    | |_   __ _  ___ | |_  _ __    ___   ___ | |_   ___  _ __ 
-    |  _| / _` |/ __|| __|| '_ \  / _ \ / __|| __| / _ \| '__|
-    | |  | (_| |\__ \| |_ | |_) || (_) |\__ \| |_ |  __/| |   
-    |_|   \__,_||___/ \__|| .__/  \___/ |___/ \__| \___||_|   
-                          | |                                 
-                          |_|                                 
-                                        fastposter(v2.1.0)     
-                                 https://poster.prodapi.cn/   '''
+ / _|            | |                     | |              
+| |_   __ _  ___ | |_  _ __    ___   ___ | |_   ___  _ __ 
+|  _| / _` |/ __|| __|| '_ \  / _ \ / __|| __| / _ \| '__|
+| |  | (_| |\__ \| |_ | |_) || (_) |\__ \| |_ |  __/| |   
+|_|   \__,_||___/ \__|| .__/  \___/ |___/ \__| \___||_|   
+                      | |                                 
+                      |_|                                 
+                                    fastposter(v2.1.1)     
+                             https://poster.prodapi.cn/   
+                                                            '''
     PORT=5000
     print(banner)
-    print(f'http://0.0.0.0:5000/')
     uri = os.environ.get('POSTER_URI_PREFIX', f'http://0.0.0.0:{PORT}/')
+    print(f'Listening at {uri}')
     g = re.search(r'http[s]?://.*?(/.*)', uri)
     web_context_path = '/' if not g else g.group(1)
     app = make_app(web_context_path)
