@@ -5,7 +5,7 @@
 **欢迎点亮小星星，加速项目迭代更新**
 
 - 开发文档：[https://poster.prodapi.cn/docs/](https://poster.prodapi.cn/docs/)
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.1.0)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.1.1)
 - [代码仓库-github](https://github.com/psoho/fast-poster)
 - [代码仓库-gitee](https://gitee.com/psoho/fast-poster)
 
