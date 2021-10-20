@@ -260,12 +260,12 @@ if __name__ == "__main__":
                       | |                                 
                       |_|                                 
                                     fastposter(v2.1.1)     
-                             https://poster.prodapi.cn/   
+                             https://poster.prodapi.cn/docs/   
                                                             '''
     PORT=5000
     print(banner)
     uri = os.environ.get('POSTER_URI_PREFIX', f'http://0.0.0.0:{PORT}/')
-    print(f'Listening at {uri}')
+    print(f'Listening at {uri}\n')
     g = re.search(r'http[s]?://.*?(/.*)', uri)
     web_context_path = '/' if not g else g.group(1)
     app = make_app(web_context_path)
