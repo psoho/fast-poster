@@ -11,7 +11,7 @@
 
 ### 只需三步，即可完成海报开发 `启动服务` > `编辑海报` > `生成代码`
 
-#### 一、启动服务 
+#### 一、启动服务
 
 ```bash
 docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
