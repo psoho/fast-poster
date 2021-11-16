@@ -58,9 +58,23 @@ class ApiLoginHandler(BaseHandler):
             token = C.code(32)
             dao.save_token(token)
             # print('ok')
-            self.write(R.ok('login success.').add('token', token).add('user', {'accessKey': accessKey, 'secretKey': secretKey}).json())
+            self.write(R.ok('login success.').add('token', token).add('user', {'accessKey': accessKey,
+                                                                               'secretKey': secretKey}).json())
         else:
             self.write(R.error('accessKey or secretKey not match!').json())
+
+
+class ApiPostersHandler(BaseHandler):
+
+    def prepare(self):
+        self.check_token()  # 检查token是否有效
+        ...
+
+    def get(self, id):
+        # 获取海报列表
+        print(id)
+        poster = dao.query_user_poster(id)
+        self.write(R.ok().add('poster', poster).json())
 
 
 class ApiUserPostersHandler(BaseHandler):
@@ -188,7 +202,7 @@ class ApiB64Handler(BaseDrawHandler):
 
 class QrcodeHandler(BaseHandler):
 
-    def get(self, v:str):
+    def get(self, v: str):
         data = {
             "w": 200,
             "h": 200,
@@ -221,6 +235,7 @@ class QrcodeHandler(BaseHandler):
         self.set_header('Content-Type', mimetype)
         self.write(buf.getvalue())
 
+
 class MyStaticFileHandler(StaticFileHandler, BaseHandler):
     pass
 
@@ -228,13 +243,13 @@ class MyStaticFileHandler(StaticFileHandler, BaseHandler):
 def make_app(p):
     path = "static" if C.indocker() else "../design/dist"
     settings = {
-        'debug': True
+        'debug': not C.indocker() or os.environ.get('POSTER_DEBUG', 'false') == 'true'
     }
     return Application([
         (f"{p}api/login", ApiLoginHandler),
         (f"{p}api/user/posters", ApiUserPostersHandler),
         (f"{p}api/user/posters/copy/(.+)", ApiUserPostersCopyHandler),
-        (f"{p}api/user/posters/(.+)", ApiUserPostersHandler),
+        (f"{p}api/user/posters/(.+)", ApiPostersHandler),
         (f"{p}api/preview", ApiPreviewHandler),
         (f"{p}api/upload", ApiUploadHandler),
         (f"{p}api/link", ApiLinkHandler),
@@ -259,10 +274,10 @@ if __name__ == "__main__":
 |_|   \__,_||___/ \__|| .__/  \___/ |___/ \__| \___||_|   
                       | |                                 
                       |_|                                 
-                                    fastposter(v2.1.1)     
+                                    fastposter(v2.3.0)     
                              https://poster.prodapi.cn/docs/   
                                                             '''
-    PORT=5000
+    PORT = 5000
     print(banner)
     uri = os.environ.get('POSTER_URI_PREFIX', f'http://0.0.0.0:{PORT}/')
     print(f'Listening at {uri}\n')
@@ -271,4 +286,3 @@ if __name__ == "__main__":
     app = make_app(web_context_path)
     app.listen(port=PORT, address='0.0.0.0')
     tornado.ioloop.IOLoop.current().start()
-

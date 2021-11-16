@@ -28,6 +28,7 @@ def init_path():
     mkdirs(STORE_PREVIEW)
     mkdirs(STORE_UPLOAD)
 
+
 def add_url_prefix(path: str):
     if path and path.startswith('http'):
         return path
@@ -36,35 +37,24 @@ def add_url_prefix(path: str):
         prefix += "/"
     return prefix + path
 
+
 def get_url_path(path: str):
     return path.replace('data/store/', 'store/')
 
+
 def md5(param: str, len=32) -> str:
-    """
-    计算对象或者字符串的MD5值
-    @param param:
-    @return:
-    """
     if type(param) != 'str':
         param = json.dumps(param)
     return hashlib.md5(param.encode()).hexdigest()[0:len]
 
 
 def code(len=32) -> str:
-    """
-    生成指定长度的随机数
-    @param len:
-    @return:
-    """
     return md5(str(uuid.uuid4()), len)
 
 
 def get_upload_dir():
-    """
-    获取上传目录
-    :return:
-    """
     return STORE_UPLOAD
+
 
 def indocker():
     return os.environ.get('FASTPOSTER_IN_DOCKER', None) is not None
