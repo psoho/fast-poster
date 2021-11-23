@@ -3,18 +3,12 @@ import os
 import C
 
 def save_to_disc(filename, content_type, body):
-    """
-    存储文件到磁盘
-    :param filename:
-    :param content_type:
-    :param body:
-    :return:
-    """
     name, ext = os.path.splitext(filename)
-    name = C.get_upload_dir() + C.code(16) + ext
-    with open(name, mode='bw') as f:
+    dir = C.mkdirs_day(C.STORE_UPLOAD)
+    path = f'{dir}/{C.code(16)}{ext}'
+    with open(path, mode='bw') as f:
         f.write(body)
-    return C.get_url_path(name)
+    return C.get_url_path(path)
 
 
 def uploads(files):
