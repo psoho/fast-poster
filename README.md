@@ -50,5 +50,5 @@ docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 进群加作者微信，请备注来自`fastposter`。
 
-![输入图片说明](https://poster.prodapi.cn/docs/_media/images/qrcode.jpg)
+![输入图片说明](https://poster.prodapi.cn/docs/assets/qrcode.jpeg)
 
