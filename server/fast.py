@@ -182,8 +182,12 @@ class ApiViewHandler(BaseHandler):
         if len(c) == 2 and (c[1] == 'png'):
             data['type'] = c[1]
         buf, mimetype = poster.drawio(data)
-        self.set_header('Content-Type', mimetype)
-        self.write(buf.getvalue())
+        if len(c) == 2 and c[1].startswith('b64'):
+            b64 = base64.b64encode(buf.read()).decode()
+            self.write(b64)
+        else:
+            self.set_header('Content-Type', mimetype)
+            self.write(buf.getvalue())
 
 
 class ApiB64Handler(BaseDrawHandler):
