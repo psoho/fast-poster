@@ -21,7 +21,7 @@ class BaseHandler(RequestHandler):
         origin_url = self.request.headers.get('Origin')
         if not origin_url:
             origin_url = '*'
-        # self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
+        self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
         self.set_header('Server', 'data')
         self.set_header('Access-Control-Allow-Credentials', 'true')
         self.set_header('Access-Control-Allow-Origin', origin_url)
@@ -253,14 +253,14 @@ def make_app(p):
         (f"{p}api/login", ApiLoginHandler),
         (f"{p}api/user/posters", ApiUserPostersHandler),
         (f"{p}api/user/posters/copy/(.+)", ApiUserPostersCopyHandler),
-        (f"{p}api/user/posters/(.+)", ApiPostersHandler),
+        (f"{p}api/user/posters/(.+)", ApiUserPostersHandler),
+        (f"{p}api/user/poster/(.+)", ApiPostersHandler),
         (f"{p}api/preview", ApiPreviewHandler),
         (f"{p}api/upload", ApiUploadHandler),
         (f"{p}api/link", ApiLinkHandler),
         (f"{p}api/qr/(.+)", QrcodeHandler),
         (f"{p}v/(.+)", ApiViewHandler),
         (f"{p}b64/(.+)", ApiB64Handler),
-        ## 静态化文件特殊处理
         (f'{p}(store/.*)$', StaticFileHandler, {"path": join(dirname(__file__), "data")}),
         (f'{p}resource/(.*)$', MyStaticFileHandler, {"path": join(dirname(__file__), "resource")}),
         (f'{p}(.*)$', StaticFileHandler, {"path": join(dirname(__file__), path), "default_filename": "index.html"})
