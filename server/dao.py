@@ -8,74 +8,35 @@ import R
 
 
 def conn():
-    """
-    获取数据库连接
-    :return:
-    """
     return sqlite3.connect(C.STORE_DB + '/poster.sqlite')
 
 
-def init():
-    """
-    初始化数据库文件
-    :return:
-    """
-    C.init_path()
+def table(sql):
+    name = sql.split(' ')[2].strip()
+    # print(name)
     with conn() as con:
         c = con.cursor()
-
-        # 判断海报表是否存在
-        r = c.execute(f"select count(1) from sqlite_master where tbl_name = 'posters'")
+        r = c.execute("select count(1) from sqlite_master where tbl_name = ?", [name])
         if r.fetchone()[0] == 0:
-            c.execute('''CREATE TABLE posters (
-                      id integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-                      code text,
-                      name text,
-                      preview text,
-                      json text,
-                      create_time date,
-                      update_time date,
-                      status integer
-                    )''')
-            print("posters created successfully.")
-
-        # 判断分享表是否存在
-        r = c.execute(f"select count(1) from sqlite_master where tbl_name = 'shares'")
-        if r.fetchone()[0] == 0:
-            c.execute('''CREATE TABLE shares (
-                          id integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-                          code text,
-                          pid integer,
-                          params text,
-                          create_time date
-                        )''')
-            print("shares created successfully.")
-
-        # 判断token表是否存在
-        r = c.execute(f"select count(1) from sqlite_master where tbl_name = 'tokens'")
-        if r.fetchone()[0] == 0:
-            c.execute('''CREATE TABLE tokens (
-                          id integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-                          token text,
-                          create_time date,
-                          expire_time date
-                        )''')
-            print("tokens created successfully.")
+            c.execute(sql)
+            print(f"{name} created successfully.")
 
 
-# 执行初始化
+INIT_SQL = [
+    'CREATE TABLE posters (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, code text, name text, preview text, json text, create_time date, update_time date, status integer)',
+    'CREATE TABLE links (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, code text, pid integer, params text, create_time date)',
+    'CREATE TABLE tokens (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, token text, create_time date, expire_time date)',
+]
+
+
+def init():
+    C.init_path()
+    for sql in INIT_SQL: table(sql)
+
 init()
 
 
 def db_save_poster(code: str, name: str, preview: str, json: str):
-    """
-    保存海报
-    :param code:
-    :param name:
-    :param preview:
-    :param json:
-    :return:
-    """
     with conn() as con:
         c = con.cursor()
         params = [code, name, preview, json, now_str(), int(C.STATUS_NORMAL)]
@@ -86,15 +47,6 @@ def db_save_poster(code: str, name: str, preview: str, json: str):
 
 
 def db_update_poster(id: int, code: str, name: str, preview: str, json: str):
-    """
-    更新海报
-    :param id:
-    :param code:
-    :param name:
-    :param preview:
-    :param json:
-    :return:
-    """
     with conn() as con:
         c = con.cursor()
         params = [code, name, preview, json, now_str(), id]
@@ -103,11 +55,6 @@ def db_update_poster(id: int, code: str, name: str, preview: str, json: str):
 
 
 def db_delete_poster(id: int):
-    """
-    删除海报
-    :param id:
-    :return:
-    """
     with conn() as con:
         c = con.cursor()
         params = [C.STATUS_DELETE, id]
@@ -116,17 +63,15 @@ def db_delete_poster(id: int):
 
 
 def db_save_share(code, poster_id, param):
-    """保存分享记录"""
     with conn() as con:
         c = con.cursor()
         params = [code, poster_id, param, now_str()]
-        c.execute("insert into shares (code, pid, params, create_time) values (?, ?, ?, ?)", params)
+        c.execute("insert into links (code, pid, params, create_time) values (?, ?, ?, ?)", params)
         con.commit()
         return c.lastrowid
 
 
 def query_user_posters():
-    """查找用户所有海报"""
     with conn() as con:
         c = con.cursor()
         r = c.execute('select * from posters where status=1 order by id desc')
@@ -146,7 +91,6 @@ def query_user_posters():
 
 
 def query_user_poster(poster_id: int):
-    """查找用户所有海报"""
     with conn() as con:
         c = con.cursor()
         r = c.execute('select * from posters where id = ? limit 1', [poster_id])
@@ -168,10 +112,9 @@ def query_user_poster(poster_id: int):
 
 
 def query_user_share(code: str):
-    """查询分享记录"""
     with conn() as con:
         c = con.cursor()
-        r = c.execute('select * from shares where code = ? limit 1', [code])
+        r = c.execute('select * from links where code = ? limit 1', [code])
         row = r.fetchone()
         # print(row)
         if row is not None:
@@ -191,8 +134,6 @@ def now_str(days=0):
 
 
 def save_user_poster(data, pd):
-    """新增海报"""
-    # print("新增海报")
     code = C.code(16)
     name = data['name']
     path = C.STORE_PREVIEW + code + "." + pd['type']
@@ -203,8 +144,6 @@ def save_user_poster(data, pd):
 
 
 def update_user_poster(data, pd, id):
-    """更新海报"""
-    # print("更新海报: id=" + str(id))
     code = data.get('code', C.code(16))
     name = data['name']
     path = C.STORE_PREVIEW + code + "." + pd['type']
@@ -215,21 +154,16 @@ def update_user_poster(data, pd, id):
 
 
 def save_or_update_user_poster(data):
-    """保存海报"""
-    # print(data)
-    # 生成缩略图
     pd = json.loads(data['json'])
     print(pd)
     id = data.get('id', 0)
     if id == 0:
-        # 新增海报
         return save_user_poster(data, pd)
     else:
         return update_user_poster(data, pd, id)
 
 
 def copy_user_poster(id):
-    """复制海报"""
     p = query_user_poster(id)
     if p:
         return db_save_poster(p['code'], p['name'] + '-复制', p['preview'], p['json'])
@@ -240,23 +174,19 @@ def get_share_link(code, param):
     s = query_user_share(code)
     if s:
         return True
-    # 需要保存链接
     posterId = int(param['posterId'])
     p = query_user_poster(posterId)
     if p is None:
         print('海报不存在')
         return R.error('海报不存在').json()
-    # print('保存海报参数')
     db_save_share(code, posterId, json.dumps(param))
     return True
 
 
 def find_share_data(code):
-    """查找分享记录"""
     s = query_user_share(code)
     if s is None:
         return None
-    # print(s)
     params = json.loads(s['params'])
 
     poster_id = int(params['posterId'])
@@ -274,17 +204,14 @@ def find_share_data(code):
     for item in params.items():
         k = item[0]
         v = item[1]
-        # 背景特殊处理
         if k == 'bgUrl':
             data['bgUrl'] = v
         if dic.get(k, None) is not None:
             dic[k]['v'] = v
-    # print(json.dumps(data, indent=2))
     return data
 
 
 def save_token(token):
-    """保存token"""
     with conn() as con:
         c = con.cursor()
         params = [token, now_str(), now_str(days=10)]
@@ -294,7 +221,6 @@ def save_token(token):
 
 
 def query_token(token):
-    """查询token"""
     with conn() as con:
         c = con.cursor()
         r = c.execute('select * from tokens where token = ? and expire_time >= ? limit 1', [token, now_str()])
@@ -302,9 +228,3 @@ def query_token(token):
         print(row)
         return row is not None
     return None
-
-
-if __name__ == '__main__':
-    # db_save_poster('12', 'fdsf', 'dsfd', 'dsfd', '2010-12-23')
-    print(now_str())
-    print(now_str(days=10))
