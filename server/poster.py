@@ -71,10 +71,6 @@ def getFont(item):
     size = item['s']
     if fn == "":
         fn = 'Alibaba-PuHuiTi-Regular.otf'
-        # 藏语测试
-        # fn = 'Monlam-Uni-Tikrang.ttf'
-        # fn = 'Qomolangma-Drutsa.ttf'
-        # fn = 'Qomolangma-UchenSarchung.ttf'
     font = 'resource/fonts/' + fn
     return ImageFont.truetype(font, size)
 
