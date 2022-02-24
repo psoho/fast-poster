@@ -122,16 +122,6 @@ class ApiUploadHandler(BaseHandler):
         path = items[0]
         self.write(R.ok().add("url", path).json())
 
-
-# class ApiLinkHandler(BaseHandler):
-#
-#     def post(self):
-#         param = json.loads(self.request.body)
-#         if not key.check(param['accessKey'], param['secretKey']):
-#             self.write(R.error('accessKey or secretKey not match').json())
-#         self.write(dao.get_share_link(param))
-
-
 class ApiLinkHandler(BaseHandler):
 
     def post(self):
@@ -156,19 +146,6 @@ class BaseDrawHandler(BaseHandler):
 
     def drawio(self, data):
         return poster.drawio(data)
-
-
-# class ApiViewHandler(BaseDrawHandler):
-#
-#     async def get(self, code):
-#         code = code[:code.index('.')]
-#         data = dao.find_share_data(code)
-#         if data is None:
-#             print('不好意思，海报不见了')
-#             return
-#         buf, mimetype = await self.async_drawio(data)
-#         self.set_header('Content-Type', mimetype)
-#         self.write(buf.getvalue())
 
 class ApiViewHandler(BaseHandler):
 
