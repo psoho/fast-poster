@@ -5,6 +5,7 @@ import sqlite3
 import C
 import poster
 import R
+import store
 
 
 def conn():
@@ -32,6 +33,7 @@ INIT_SQL = [
 def init():
     C.init_path()
     for sql in INIT_SQL: table(sql)
+
 
 init()
 
@@ -136,20 +138,16 @@ def now_str(days=0):
 def save_user_poster(data, pd):
     code = C.code(16)
     name = data['name']
-    path = C.STORE_PREVIEW + code + "." + pd['type']
-    im = poster.drawmini(pd)
-    im.save(path)
-    path = C.get_url_path(path)
+    buf, mimetype = poster.drawio(pd, 0.4)
+    path = store.save(buf.getvalue(), f"a.{pd['type']}", 'preview')
     return db_save_poster(code, name, path, data['json'])
 
 
 def update_user_poster(data, pd, id):
     code = data.get('code', C.code(16))
     name = data['name']
-    path = C.STORE_PREVIEW + code + "." + pd['type']
-    im = poster.drawmini(pd)
-    im.save(path)
-    path = C.get_url_path(path)
+    buf, mimetype = poster.drawio(pd, 0.4)
+    path = store.save(buf.getvalue(), f"a.{pd['type']}", 'preview')
     return db_update_poster(id, code, name, path, data['json'])
 
 

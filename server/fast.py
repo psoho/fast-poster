@@ -118,9 +118,13 @@ class ApiPreviewHandler(BaseHandler):
 class ApiUploadHandler(BaseHandler):
 
     def post(self):
-        items = store.uploads(self.request.files)
-        path = items[0]
+        for field_name, fs in self.request.files.items():
+            for f in fs:
+                filename, body, content_type = f["filename"], f['body'], f["content_type"]
+                path = store.save(body, filename)
+                break
         self.write(R.ok().add("url", path).json())
+
 
 class ApiLinkHandler(BaseHandler):
 
@@ -146,6 +150,7 @@ class BaseDrawHandler(BaseHandler):
 
     def drawio(self, data):
         return poster.drawio(data)
+
 
 class ApiViewHandler(BaseHandler):
 

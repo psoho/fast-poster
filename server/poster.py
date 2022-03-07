@@ -70,7 +70,7 @@ def getFont(item):
     fn = item['fn']
     size = item['s']
     if fn == "":
-        fn = 'Alibaba-PuHuiTi-Regular.otf'
+        fn = '0d44d315557a4a25.woff'
     font = 'resource/fonts/' + fn
     return ImageFont.truetype(font, size)
 
@@ -181,7 +181,7 @@ def draw(data):
     return img
 
 
-def drawio(data):
+def drawio(data, scale=1):
     type = data['type']
     if type == "jpg":
         type = "jpeg"
@@ -189,15 +189,11 @@ def drawio(data):
     mimetype = "image/" + data['type']
     img = draw(data)
     quality = data['quality']
+    if scale < 1:
+        w = img.size[0]
+        h = img.size[1]
+        img = img.resize((int(w * scale), int(h * scale)), Image.ANTIALIAS)
     buf = BytesIO()
     img.save(buf, type, quality=quality, progressive=True)
     buf.seek(0)
     return buf, mimetype
-
-
-def drawmini(data, scale=0.5):
-    im = draw(data)
-    w = im.size[0]
-    h = im.size[1]
-    img = im.resize((int(w * scale), int(h * scale)), Image.ANTIALIAS)
-    return img

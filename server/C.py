@@ -3,12 +3,16 @@ import hashlib
 import json
 import os
 import uuid
+import yaml
 
 STORE_DB = 'data/db'
-STORE_UPLOAD = 'data/store/upload/'
-STORE_PREVIEW = 'data/store/preview/'
+STORE_DIR = 'data/store'
 STATUS_NORMAL = 1
 STATUS_DELETE = 2
+
+config = {}
+if os.path.exists('app.yml'):
+    config = yaml.safe_load(open('app.yml'))
 
 
 def mkdirs(path):
@@ -18,28 +22,8 @@ def mkdirs(path):
     return path
 
 
-def mkdirs_day(path):
-    day = datetime.datetime.strftime(datetime.datetime.now(), '%Y%m%d')
-    return mkdirs(f'{path}{day}')
-
-
 def init_path():
     mkdirs(STORE_DB)
-    mkdirs(STORE_PREVIEW)
-    mkdirs(STORE_UPLOAD)
-
-
-def add_url_prefix(path: str):
-    if path and path.startswith('http'):
-        return path
-    prefix = os.environ.get('POSTER_URI_PREFIX')
-    if prefix and not prefix.endswith("/"):
-        prefix += "/"
-    return prefix + path
-
-
-def get_url_path(path: str):
-    return path.replace('data/store/', 'store/')
 
 
 def md5(param: str, len=32) -> str:
@@ -50,10 +34,6 @@ def md5(param: str, len=32) -> str:
 
 def code(len=32) -> str:
     return md5(str(uuid.uuid4()), len)
-
-
-def get_upload_dir():
-    return STORE_UPLOAD
 
 
 def indocker():

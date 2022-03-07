@@ -1,22 +1,25 @@
 import os
+from datetime import datetime
 
 import C
 
-def save_to_disc(filename, content_type, body):
-    name, ext = os.path.splitext(filename)
-    dir = C.mkdirs_day(C.STORE_UPLOAD)
-    path = f'{dir}/{C.code(16)}{ext}'
-    with open(path, mode='bw') as f:
-        f.write(body)
-    return C.get_url_path(path)
+
+class DiskStore():
+    """
+    本地存储
+    """
+
+    def save(self, body, path):
+        path = f'{C.STORE_DIR}/{path}'
+        if not os.path.exists(os.path.dirname(path)):
+            os.makedirs(os.path.dirname(path))
+        with open(path, mode='bw') as f:
+            f.write(body)
+        return path.replace('data/', '')
 
 
-def uploads(files):
-    items = []
-    for field_name, files in files.items():
-        for info in files:
-            filename, content_type = info["filename"], info["content_type"]
-            body = info["body"]
-            url = save_to_disc(filename, content_type, body)
-            items.append(url)
-    return items
+def save(body, filename, target='upload', rename=True):
+    name = f'{C.code()}{os.path.splitext(filename)[1]}' if rename else filename
+    day = datetime.strftime(datetime.now(), '%Y%m%d')
+    path = f'{target}/{day}/{name}'
+    return DiskStore().save(body, path)
