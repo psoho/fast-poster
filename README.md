@@ -1,12 +1,12 @@
-## fastposter海报生成器
+## fastposter电商海报生成器
 
 > 一分钟即可完成海报开发
 
 **欢迎点亮小星星，加速项目迭代更新**
 
 - 开发文档：[https://poster.prodapi.cn/docs/](https://poster.prodapi.cn/docs/)
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.6.0)
-- 专业版在线体验：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=v2.6.0)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.6.1)
+- 专业版在线体验：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=v2.6.1)
 - [代码仓库-github](https://github.com/psoho/fast-poster)
 - [代码仓库-gitee](https://gitee.com/psoho/fast-poster)
 
@@ -20,16 +20,17 @@ docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 #### 二、编辑海报
 
-![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20210916131437123.png?v=2.6.0)
+![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20210916131437123.png?v=2.6.1)
 
 #### 三、生成代码
 
-![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20210916131538847.png?v=2.6.0)
+![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20210916131538847.png?v=2.6.1)
 
 
 ### 适用场景：
 
 - 在线作图
+- Python Pillow绘图 Pillow制作海报
 - Java生成二维码分享海报图片
 - Java Graphics2D绘制海报图片
 - 微信小程序生成海报分享朋友圈

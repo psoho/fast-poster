@@ -12,7 +12,7 @@ STATUS_DELETE = 2
 
 config = {}
 if os.path.exists('app.yml'):
-    config = yaml.safe_load(open('app.yml'))
+    config = yaml.safe_load(open('app.yml', encoding='utf-8'))
 
 
 def mkdirs(path):
