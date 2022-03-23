@@ -7,13 +7,17 @@
 
 **欢迎点亮小星星，加速项目迭代更新**
 
-![gitee](https://gitee.com/psoho/fast-poster/badge/star.svg)  ![](https://img.shields.io/github/stars/psoho/fast-poster?style=social)
+<a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img alt="GitHub Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
+<a href="https://gitee.com/psoho/fast-poster" class="link github-link" target="_blank"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
 
 - 开发文档：[https://poster.prodapi.cn/docs/](https://poster.prodapi.cn/docs/)
 - 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.6.2)
-- 专业版在线体验：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=v2.6.2)
-- [代码仓库-github](https://github.com/psoho/fast-poster)
-- [代码仓库-gitee](https://gitee.com/psoho/fast-poster)
+
+[comment]: <> (- 专业版在线体验：[https://poster.prodapi.cn/pro/]&#40;https://poster.prodapi.cn/pro/#from=v2.6.2&#41;)
+
+[comment]: <> (- [代码仓库-github]&#40;https://github.com/psoho/fast-poster&#41;)
+
+[comment]: <> (- [代码仓库-gitee]&#40;https://gitee.com/psoho/fast-poster&#41;)
 
 ### 只需三步，即可完成海报开发 `启动服务` > `编辑海报` > `生成代码`
 
