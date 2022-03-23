@@ -7,6 +7,8 @@
 
 **欢迎点亮小星星，加速项目迭代更新**
 
+![gitee](https://gitee.com/psoho/fast-poster/badge/star.svg)  ![](https://img.shields.io/github/stars/psoho/fast-poster?style=social)
+
 - 开发文档：[https://poster.prodapi.cn/docs/](https://poster.prodapi.cn/docs/)
 - 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.6.2)
 - 专业版在线体验：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=v2.6.2)
@@ -45,9 +47,9 @@ docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
 - 通过JSON生成海报图片
 
 
-### 追星之路
+[comment]: <> (### 追星之路)
 
-[![Stargazers over time](https://starchart.cc/psoho/fast-poster.svg)](https://starchart.cc/psoho/fast-poster)
+[comment]: <> ([![Stargazers over time]&#40;https://starchart.cc/psoho/fast-poster.svg&#41;]&#40;https://starchart.cc/psoho/fast-poster&#41;)
 
 ### 捐赠
 
