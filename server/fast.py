@@ -261,7 +261,7 @@ if __name__ == "__main__":
 |_|   \__,_||___/ \__|| .__/  \___/ |___/ \__| \___||_|   
                       | |                                 
                       |_|                                 
-                                    fastposter(v2.5.1)     
+                                    fastposter(v2.6.2)     
                              https://poster.prodapi.cn/docs/   
                                                             '''
     PORT = 5000
