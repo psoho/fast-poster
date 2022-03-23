@@ -12,8 +12,7 @@
 
 - 开发文档：[https://poster.prodapi.cn/docs/](https://poster.prodapi.cn/docs/)
 - 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.6.2)
-
-[comment]: <> (- 专业版在线体验：[https://poster.prodapi.cn/pro/]&#40;https://poster.prodapi.cn/pro/#from=v2.6.2&#41;)
+- 专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=v2.6.2)
 
 [comment]: <> (- [代码仓库-github]&#40;https://github.com/psoho/fast-poster&#41;)
 
