@@ -7,8 +7,8 @@
 
 **欢迎点亮小星星，加速项目迭代更新**
 
-<a href="https://gitee.com/psoho/fast-poster" class="link github-link" target="_blank"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
-<a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img alt="GitHub Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
+<a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
+<a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
 
 - 开发文档：[https://poster.prodapi.cn/docs/](https://poster.prodapi.cn/docs/)
 - 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.6.2)
