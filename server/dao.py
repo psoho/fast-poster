@@ -14,7 +14,6 @@ def conn():
 
 def table(sql):
     name = sql.split(' ')[2].strip()
-    # print(name)
     with conn() as con:
         c = con.cursor()
         r = c.execute("select count(1) from sqlite_master where tbl_name = ?", [name])
