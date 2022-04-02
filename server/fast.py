@@ -21,7 +21,7 @@ class BaseHandler(RequestHandler):
         origin_url = self.request.headers.get('Origin')
         if not origin_url: origin_url = '*'
         self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
-        self.set_header('Server', 'fastposter')
+        self.set_header('fastposter', 'v2.7.0')
         self.set_header('Access-Control-Allow-Credentials', 'true')
         self.set_header('Access-Control-Allow-Origin', origin_url)
         self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type')
@@ -56,6 +56,7 @@ class ApiLoginHandler(BaseHandler):
     def post(self):
         accessKey = self.get_body_argument('accessKey')
         secretKey = self.get_body_argument('secretKey')
+        print(f'login: accessKey={accessKey}, secretKey={secretKey}')
         if key.check(accessKey, secretKey):
             token = C.code(32)
             dao.save_token(token)
@@ -146,6 +147,7 @@ class ApiViewHandler(BaseHandler):
         c = code.split('.')
         data = dao.find_share_data(c[0])
         if data is None:
+            print('no poster here!')
             self.write(R.error('no poster here!'))
             return
         if len(c) == 2 and (c[1] == 'png'):
@@ -157,6 +159,19 @@ class ApiViewHandler(BaseHandler):
         else:
             self.set_header('Content-Type', mimetype)
             self.write(buf.getvalue())
+
+
+class ApiB64Handler(BaseDrawHandler):
+
+    def get(self, code):
+        code = code[:code.index('.')]
+        data = dao.find_share_data(code)
+        if data is None:
+            print('不好意思，海报不见了')
+            return
+        buf, mimetype = self.drawio(data)
+        base64_data = base64.b64encode(buf.read())
+        self.write(base64_data.decode())
 
 
 class QrcodeHandler(BaseHandler):
