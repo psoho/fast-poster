@@ -11,8 +11,8 @@
 <a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
 
 - 开发文档：[https://poster.prodapi.cn/docs/](https://poster.prodapi.cn/docs/)
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.6.2)
-- 专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=v2.6.2)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.7.0)
+- 专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=v2.7.0)
 
 [comment]: <> (- [代码仓库-github]&#40;https://github.com/psoho/fast-poster&#41;)
 
@@ -28,11 +28,11 @@ docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 #### 二、编辑海报
 
-![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20210916131437123.png?v=2.6.2)
+![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20210916131437123.png?v=2.7.0)
 
 #### 三、生成代码
 
-![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20210916131538847.png?v=2.6.2)
+![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20210916131538847.png?v=2.7.0)
 
 
 ### 适用场景：

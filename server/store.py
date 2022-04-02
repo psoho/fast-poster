@@ -5,10 +5,6 @@ import C
 
 
 class DiskStore():
-    """
-    本地存储
-    """
-
     def save(self, body, path):
         path = f'{C.STORE_DIR}/{path}'
         if not os.path.exists(os.path.dirname(path)):

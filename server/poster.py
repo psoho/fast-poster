@@ -43,7 +43,6 @@ def drawImg(draw, d, bg):
         img = fetchImg(url)
         if img == None:
             return
-        # 尺寸更改
         img = img.resize((w, h), Image.ANTIALIAS)
         bg.paste(img, (x, y), img)
     except Exception as e:
@@ -62,7 +61,7 @@ def drawBg(item):
     else:
         img = fetchImg(url)
     img = img.resize((w, h), Image.ANTIALIAS)
-    draw = ImageDraw.Draw(img)  # 绘制对象
+    draw = ImageDraw.Draw(img)
     return img, draw
 
 
@@ -76,7 +75,6 @@ def getFont(item):
 
 
 def wrap_text(text, font, width):
-    """包裹文字"""
     sb = []
     temp = ''
     for s in text:

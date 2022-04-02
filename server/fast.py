@@ -19,25 +19,22 @@ class BaseHandler(RequestHandler):
 
     def set_default_headers(self) -> None:
         origin_url = self.request.headers.get('Origin')
-        if not origin_url:
-            origin_url = '*'
+        if not origin_url: origin_url = '*'
         self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
-        self.set_header('Server', 'data')
+        self.set_header('Server', 'fastposter')
         self.set_header('Access-Control-Allow-Credentials', 'true')
         self.set_header('Access-Control-Allow-Origin', origin_url)
         self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type')
 
     def options(self):
-        self.set_status(200)  # 这里的状态码一定要设置200
+        self.set_status(200)
         self.finish()
-        print('options')
 
     def check_token(self):
-        # print('check_token', self.request.path)
         t = self.request.headers['token'] if 'token' in self.request.headers else None
         if not t:
             self.write(R.expire('not token').json())
-            return self.finish()  # 标识请求已经结束
+            return self.finish()
         dbtoken = dao.query_token(t)
         if not dbtoken:
             self.write(R.expire().json())
@@ -46,6 +43,12 @@ class BaseHandler(RequestHandler):
     def json(self, r: R):
         self.set_header('Content-Type', 'application/json;charset=UTF-8')
         self.write(r.json())
+
+
+class BaseAuthHandler(BaseHandler):
+
+    def prepare(self):
+        self.check_token()
 
 
 class ApiLoginHandler(BaseHandler):
@@ -57,39 +60,26 @@ class ApiLoginHandler(BaseHandler):
         if key.check(accessKey, secretKey):
             token = C.code(32)
             dao.save_token(token)
-            # print('ok')
             self.write(R.ok('login success.').add('token', token).add('user', {'accessKey': accessKey,
                                                                                'secretKey': secretKey}).json())
         else:
             self.write(R.error('accessKey or secretKey not match!').json())
 
 
-class ApiPostersHandler(BaseHandler):
-
-    def prepare(self):
-        self.check_token()  # 检查token是否有效
-        ...
+class ApiPostersHandler(BaseAuthHandler):
 
     def get(self, id):
-        # 获取海报列表
-        print(id)
         poster = dao.query_user_poster(id)
         self.write(R.ok().add('poster', poster).json())
 
 
-class ApiUserPostersHandler(BaseHandler):
-
-    def prepare(self):
-        self.check_token()  # 检查token是否有效
-        ...
+class ApiUserPostersHandler(BaseAuthHandler):
 
     def get(self):
-        # 获取海报列表
         posters = dao.query_user_posters()
         self.write(R.ok().add('posters', posters).json())
 
     def delete(self, id):
-        # 删除指定的海报
         dao.db_delete_poster(int(id))
         self.write(R.ok().json())
 
@@ -99,7 +89,7 @@ class ApiUserPostersHandler(BaseHandler):
         self.write(R.ok().add("id", id).json())
 
 
-class ApiUserPostersCopyHandler(BaseHandler):
+class ApiUserPostersCopyHandler(BaseAuthHandler):
 
     def post(self, id):
         id = dao.copy_user_poster(id)
@@ -130,7 +120,6 @@ class ApiLinkHandler(BaseHandler):
 
     def post(self):
         param = json.loads(self.request.body)
-        # TODO: use http's Authorization header
         if not key.check(param['accessKey'], param['secretKey']):
             self.write(R.error('accessKey or secretKey not match').json())
         del param['accessKey']
@@ -181,7 +170,6 @@ class ApiB64Handler(BaseDrawHandler):
             print('不好意思，海报不见了')
             return
         buf, mimetype = self.drawio(data)
-        # self.set_header('Content-Type', mimetype)
         base64_data = base64.b64encode(buf.read())
         self.write(base64_data.decode())
 
@@ -242,7 +230,6 @@ def make_app(p):
         (f"{p}api/link", ApiLinkHandler),
         (f"{p}api/qr/(.+)", QrcodeHandler),
         (f"{p}v/(.+)", ApiViewHandler),
-        (f"{p}b64/(.+)", ApiB64Handler),
         (f'{p}(store/.*)$', StaticFileHandler, {"path": join(dirname(__file__), "data")}),
         (f'{p}resource/(.*)$', MyStaticFileHandler, {"path": join(dirname(__file__), "resource")}),
         (f'{p}(.*)$', StaticFileHandler, {"path": join(dirname(__file__), path), "default_filename": "index.html"})
@@ -261,7 +248,7 @@ if __name__ == "__main__":
 |_|   \__,_||___/ \__|| .__/  \___/ |___/ \__| \___||_|   
                       | |                                 
                       |_|                                 
-                                    fastposter(v2.6.2)     
+                                    fastposter(v2.7.0)     
                              https://poster.prodapi.cn/docs/   
                                                             '''
     PORT = 5000
