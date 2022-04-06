@@ -35,7 +35,7 @@ def md5(param: str, len=32) -> str:
     return hashlib.md5(param.encode()).hexdigest()[0:len]
 
 
-def code(len=32) -> str:
+def code(len=16) -> str:
     return md5(str(uuid.uuid4()), len)
 
 

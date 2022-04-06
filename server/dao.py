@@ -134,7 +134,7 @@ def now_str(days=0):
 
 
 def save_user_poster(data, pd):
-    code = C.code(16)
+    code = C.code()
     name = data['name']
     buf, mimetype = poster.drawio(pd, 0.4)
     path = store.save(buf.getvalue(), f"a.{pd['type']}", 'preview')
@@ -142,7 +142,7 @@ def save_user_poster(data, pd):
 
 
 def update_user_poster(data, pd, id):
-    code = data.get('code', C.code(16))
+    code = data.get('code', C.code())
     name = data['name']
     buf, mimetype = poster.drawio(pd, 0.4)
     path = store.save(buf.getvalue(), f"a.{pd['type']}", 'preview')

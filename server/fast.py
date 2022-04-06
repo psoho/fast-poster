@@ -97,7 +97,7 @@ class ApiUserPostersCopyHandler(BaseAuthHandler):
         self.json(R.ok().add("id", id))
 
 
-class ApiPreviewHandler(BaseHandler):
+class ApiPreviewHandler(BaseAuthHandler):
 
     def post(self):
         data = json.loads(self.request.body)
@@ -106,7 +106,7 @@ class ApiPreviewHandler(BaseHandler):
         self.write(buf.getvalue())
 
 
-class ApiUploadHandler(BaseHandler):
+class ApiUploadHandler(BaseAuthHandler):
 
     def post(self):
         for field_name, fs in self.request.files.items():
