@@ -71,6 +71,8 @@ def getFont(item):
     if fn == "":
         fn = '0d44d315557a4a25.woff'
     font = 'resource/fonts/' + fn
+    if not os.path.exists(font):
+        font = 'resource/fonts/0d44d315557a4a25.woff'
     return ImageFont.truetype(font, size)
 
 

@@ -10,7 +10,6 @@ import C
 import R
 import dao
 import json
-import key
 import poster
 import store
 
@@ -21,7 +20,7 @@ class BaseHandler(RequestHandler):
         origin_url = self.request.headers.get('Origin')
         if not origin_url: origin_url = '*'
         self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
-        self.set_header('fastposter', 'v2.7.0')
+        self.set_header('fastposter', 'fastposter/v2.7.0')
         self.set_header('Access-Control-Allow-Credentials', 'true')
         self.set_header('Access-Control-Allow-Origin', origin_url)
         self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type')
@@ -29,16 +28,6 @@ class BaseHandler(RequestHandler):
     def options(self):
         self.set_status(200)
         self.finish()
-
-    def check_token(self):
-        t = self.request.headers['token'] if 'token' in self.request.headers else None
-        if not t:
-            self.write(R.expire('not token').json())
-            return self.finish()
-        dbtoken = dao.query_token(t)
-        if not dbtoken:
-            self.write(R.expire().json())
-            return self.finish()
 
     def json(self, r: R):
         self.set_header('Content-Type', 'application/json;charset=UTF-8')
@@ -50,20 +39,32 @@ class BaseAuthHandler(BaseHandler):
     def prepare(self):
         self.check_token()
 
+    def token(self):
+        t = self.request.headers['token'] if 'token' in self.request.headers else None
+        if not t:
+            t = self.get_argument('token', None)
+        if not t:
+            t = self.get_body_argument('token', None)
+        return t
+
+    def check_token(self):
+        t = self.token()
+        if not t:
+            self.json(R.expire('not token'))
+            return self.finish()
+        if not C.check_token(t):
+            self.json(R.expire())
+            return self.finish()
+
 
 class ApiLoginHandler(BaseHandler):
 
     def post(self):
-        accessKey = self.get_body_argument('accessKey')
-        secretKey = self.get_body_argument('secretKey')
-        print(f'login: accessKey={accessKey}, secretKey={secretKey}')
-        if key.check(accessKey, secretKey):
-            token = C.code(32)
-            dao.save_token(token)
-            self.write(R.ok('login success.').add('token', token).add('user', {'accessKey': accessKey,
-                                                                               'secretKey': secretKey}).json())
+        token = self.get_body_argument('token')
+        if C.check_token(token):
+            self.json(R.ok('login success.').add('token', token))
         else:
-            self.write(R.error('accessKey or secretKey not match!').json())
+            self.json(R.error('token not match!'))
 
 
 class ApiPostersHandler(BaseAuthHandler):
@@ -93,7 +94,7 @@ class ApiUserPostersCopyHandler(BaseAuthHandler):
 
     def post(self, id):
         id = dao.copy_user_poster(id)
-        self.write(R.ok().add("id", id).json())
+        self.json(R.ok().add("id", id))
 
 
 class ApiPreviewHandler(BaseHandler):
@@ -113,32 +114,19 @@ class ApiUploadHandler(BaseHandler):
                 filename, body, content_type = f["filename"], f['body'], f["content_type"]
                 path = store.save(body, filename)
                 break
-        self.write(R.ok().add("url", path).json())
+        self.json(R.ok().add("url", path))
 
 
-class ApiLinkHandler(BaseHandler):
+class ApiLinkHandler(BaseAuthHandler):
 
     def post(self):
         param = json.loads(self.request.body)
-        if not key.check(param['accessKey'], param['secretKey']):
-            self.write(R.error('accessKey or secretKey not match').json())
-        del param['accessKey']
-        del param['secretKey']
         code = C.md5(param, 16)
         if dao.get_share_link(code, param):
             url = f"{uri}/v/{code}".replace('//v', '/v')
             self.json(R.ok().add('url', url))
         else:
             self.json(R.error(f'the poster [{param["posterId"]}] not exits.'))
-
-
-class BaseDrawHandler(BaseHandler):
-
-    async def async_drawio(self, data):
-        return poster.drawio(data)
-
-    def drawio(self, data):
-        return poster.drawio(data)
 
 
 class ApiViewHandler(BaseHandler):
@@ -161,55 +149,6 @@ class ApiViewHandler(BaseHandler):
             self.write(buf.getvalue())
 
 
-class ApiB64Handler(BaseDrawHandler):
-
-    def get(self, code):
-        code = code[:code.index('.')]
-        data = dao.find_share_data(code)
-        if data is None:
-            print('不好意思，海报不见了')
-            return
-        buf, mimetype = self.drawio(data)
-        base64_data = base64.b64encode(buf.read())
-        self.write(base64_data.decode())
-
-
-class QrcodeHandler(BaseHandler):
-
-    def get(self, v: str):
-        data = {
-            "w": 200,
-            "h": 200,
-            "bgc": "#ffffff",
-            "type": "jpeg",
-            "quality": 80,
-            "bgUrl": "",
-            "items": [
-                {
-                    "t": "qrcode",
-                    "name": "二维码",
-                    "uuid": "yI4GJ4a9",
-                    "x": 10,
-                    "y": 10,
-                    "w": 180,
-                    "h": 180,
-                    "z": 1,
-                    "s": 15,
-                    "c": f"#010203",
-                    "bgc": "#ffffff",
-                    "v": f"{v}",
-                    "vd": "qrcode",
-                    "fn": "",
-                    "st": 0,
-                    "p": 0
-                }
-            ]
-        }
-        buf, mimetype = poster.drawio(data)
-        self.set_header('Content-Type', mimetype)
-        self.write(buf.getvalue())
-
-
 class MyStaticFileHandler(StaticFileHandler, BaseHandler):
     pass
 
@@ -228,7 +167,6 @@ def make_app(p):
         (f"{p}api/preview", ApiPreviewHandler),
         (f"{p}api/upload", ApiUploadHandler),
         (f"{p}api/link", ApiLinkHandler),
-        (f"{p}api/qr/(.+)", QrcodeHandler),
         (f"{p}v/(.+)", ApiViewHandler),
         (f'{p}(store/.*)$', StaticFileHandler, {"path": join(dirname(__file__), "data")}),
         (f'{p}resource/(.*)$', MyStaticFileHandler, {"path": join(dirname(__file__), "resource")}),
@@ -238,7 +176,6 @@ def make_app(p):
 
 
 if __name__ == "__main__":
-    key.init()
     banner = '''
   __              _                       _               
  / _|            | |                     | |              

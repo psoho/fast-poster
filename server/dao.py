@@ -14,7 +14,6 @@ def conn():
 
 def table(sql):
     name = sql.split(' ')[2].strip()
-    # print(name)
     with conn() as con:
         c = con.cursor()
         r = c.execute("select count(1) from sqlite_master where tbl_name = ?", [name])
@@ -26,7 +25,6 @@ def table(sql):
 INIT_SQL = [
     'CREATE TABLE posters (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, code text, name text, preview text, json text, create_time date, update_time date, status integer)',
     'CREATE TABLE links (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, code text, pid integer, params text, create_time date)',
-    'CREATE TABLE tokens (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, token text, create_time date, expire_time date)',
 ]
 
 
@@ -172,7 +170,10 @@ def get_share_link(code, param):
     s = query_user_share(code)
     if s:
         return True
-    posterId = int(param['posterId'])
+    if param.get('id', None):
+        posterId = int(param['id'])
+    elif param.get('posterId', None):
+        posterId = int(param['posterId'])
     p = query_user_poster(posterId)
     if p is None:
         print('海报不存在')
@@ -185,10 +186,12 @@ def find_share_data(code):
     s = query_user_share(code)
     if s is None:
         return None
-    params = json.loads(s['params'])
-
-    poster_id = int(params['posterId'])
-    p = query_user_poster(poster_id)
+    param = json.loads(s['params'])
+    if param.get('id', None):
+        posterId = int(param['id'])
+    elif param.get('posterId', None):
+        posterId = int(param['posterId'])
+    p = query_user_poster(posterId)
 
     data = json.loads(p['json'])
     items = data['items']
@@ -199,7 +202,7 @@ def find_share_data(code):
             dic[vd] = item
     if p is None:
         return None
-    for item in params.items():
+    for item in param.items():
         k = item[0]
         v = item[1]
         if k == 'bgUrl':
@@ -207,22 +210,3 @@ def find_share_data(code):
         if dic.get(k, None) is not None:
             dic[k]['v'] = v
     return data
-
-
-def save_token(token):
-    with conn() as con:
-        c = con.cursor()
-        params = [token, now_str(), now_str(days=10)]
-        c.execute("insert into tokens (token, create_time, expire_time) values (?, ?, ?)", params)
-        con.commit()
-        return c.lastrowid
-
-
-def query_token(token):
-    with conn() as con:
-        c = con.cursor()
-        r = c.execute('select * from tokens where token = ? and expire_time >= ? limit 1', [token, now_str()])
-        row = r.fetchone()
-        print(row)
-        return row is not None
-    return None
