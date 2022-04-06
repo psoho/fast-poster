@@ -28,17 +28,18 @@ docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 #### 二、编辑海报
 
-![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20210916131437123.png?v=2.7.0)
+![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20220407022106197.png)
 
 #### 三、生成代码
 
-![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20210916131538847.png?v=2.7.0)
+![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20220407022137670.png)
 
 
 ### 适用场景：
 
 - 电商主图编辑器
 - 在线作图
+- 电商海报编辑器
 - Python Pillow绘图 Pillow制作海报
 - Java生成二维码分享海报图片
 - Java Graphics2D绘制海报图片
