@@ -11,12 +11,12 @@
 <a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
 
 - 开发文档：[https://poster.prodapi.cn/docs/](https://poster.prodapi.cn/docs/)
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.7.0)
-- 专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=v2.7.0)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.7.1)
+- 专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=v2.7.1)
 
-[comment]: <> (- [代码仓库-github]&#40;https://github.com/psoho/fast-poster&#41;)
+[comment]: <> "- [代码仓库-github]&#40;https://github.com/psoho/fast-poster&#41;"
 
-[comment]: <> (- [代码仓库-gitee]&#40;https://gitee.com/psoho/fast-poster&#41;)
+[comment]: <> "- [代码仓库-gitee]&#40;https://gitee.com/psoho/fast-poster&#41;"
 
 ### 只需三步，即可完成海报开发 `启动服务` > `编辑海报` > `生成代码`
 
@@ -28,12 +28,12 @@ docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 #### 二、编辑海报
 
-![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20220407022106197.png)
+![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20220407142530149.png)
+
 
 #### 三、生成代码
 
-![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20220407022137670.png)
-
+![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20220407142705928.png)
 
 ### 适用场景：
 
@@ -52,9 +52,9 @@ docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
 - 通过JSON生成海报图片
 
 
-[comment]: <> (### 追星之路)
+[comment]: <> "### 追星之路"
 
-[comment]: <> ([![Stargazers over time]&#40;https://starchart.cc/psoho/fast-poster.svg&#41;]&#40;https://starchart.cc/psoho/fast-poster&#41;)
+[comment]: <> "[![Stargazers over time]&#40;https://starchart.cc/psoho/fast-poster.svg&#41;]&#40;https://starchart.cc/psoho/fast-poster&#41;"
 
 ### 捐赠
 
