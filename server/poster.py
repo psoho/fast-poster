@@ -158,7 +158,6 @@ def drawAvatar(draw, item, bg):
 
 def draw(data):
     img, draw = drawBg(data)
-
     for item in data['items']:
         type = item['t']
         if 'text' == type:
@@ -175,7 +174,6 @@ def draw(data):
                 drawImg(draw, item, bg=img)
             else:
                 drawQrCode(draw, item, bg=img)
-
     if data['type'] == "jpeg":
         img = img.convert("RGB")
     return img
