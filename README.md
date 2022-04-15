@@ -10,7 +10,7 @@
 <a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
 <a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
 
-- 开发文档：[https://poster.prodapi.cn/docs/](https://poster.prodapi.cn/docs/)
+- 开发文档：[https://poster.prodapi.cn/doc/](https://poster.prodapi.cn/doc/)
 - 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=v2.7.1)
 - 专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=v2.7.1)
 
@@ -28,12 +28,12 @@ docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 #### 二、编辑海报
 
-![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20220407142530149.png)
+![输入图片说明](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png)
 
 
 #### 三、生成代码
 
-![输入图片说明](https://poster.prodapi.cn/docs/assets/image-20220407142705928.png)
+![输入图片说明](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png)
 
 ### 适用场景：
 
@@ -58,11 +58,11 @@ docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 ### 捐赠
 
-如果你觉得 `fastposter` 对你有帮助，或者想对我们微小的工作一点支持，欢迎给我们[捐赠](https://poster.prodapi.cn/docs/#/donate)
+如果你觉得 `fastposter` 对你有帮助，或者想对我们微小的工作一点支持，欢迎给我们[捐赠](https://poster.prodapi.cn/doc/guide/donate.html)
 
 ### 社区
 
-进群加作者微信，请备注来自`fastposter`。
+进群加作者微信`fastposter`
 
-![输入图片说明](https://poster.prodapi.cn/docs/assets/qrcode.jpeg)
+![输入图片说明](https://poster.prodapi.cn/doc/assets/qrcode.jpeg)
 
