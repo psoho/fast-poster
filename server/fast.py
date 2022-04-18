@@ -186,7 +186,7 @@ if __name__ == "__main__":
                       | |                                 
                       |_|                                 
                                     fastposter(v2.8.0)     
-                             https://poster.prodapi.cn/docs/   
+                             https://poster.prodapi.cn/doc/   
                                                             '''
     PORT = 5000
     print(banner)

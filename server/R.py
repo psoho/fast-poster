@@ -38,7 +38,3 @@ def error(msg='failure'):
 
 def expire(msg='token expired'):
     return R(401).set('msg', msg)
-
-
-if __name__ == '__main__':
-    print(ok('操作成功'))
