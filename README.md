@@ -19,17 +19,17 @@
 #### 一、启动服务
 
 ```bash
-docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
+docker run -it --name fast-poster -p 5000:5000 tangweixin/fast-poster
 ```
 
 #### 二、编辑海报
 
-![编辑海报](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png)
+![fastposter编辑海报](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png)
 
 
 #### 三、生成代码
 
-![生成代码](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png)
+![fastposter生成代码](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png)
 
 ### 适用场景：
 
@@ -60,5 +60,5 @@ docker run --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 进群加作者微信`fastposter`
 
-![作者微信二维码](https://poster.prodapi.cn/doc/assets/qrcode.jpeg)
+![fastposer作者微信](https://poster.prodapi.cn/doc/assets/qrcode.jpeg)
 
