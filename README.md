@@ -5,6 +5,7 @@
 🔥🔥🔥 fastposter海报生成器是一款快速开发海报的工具，只需要上传一张海报底图，然后在对应的位置放上组件（`文字`、`图片`、`二维码`、`头像`），即可生成调用的代码。用所见即所得的方式快速完成海报开发。
 
 
+
 **欢迎点亮小星星，加速项目迭代更新**
 
 <a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
