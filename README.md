@@ -49,7 +49,13 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 响应示例（返回海报的访问地址）
 
 ```json
-{"code": 0, "msg": "success", "data": {"url": "https://poster.prodapi.cn/v/e670a0b84209a7d9"}}
+{
+    "code": 0,
+    "msg": "success",
+    "data": {
+        "url": "https://poster.prodapi.cn/v/90295c118d4c8802"
+    }
+}
 ```
 
 ## 适用场景
