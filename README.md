@@ -1,8 +1,8 @@
 ## fastposter电商海报生成器
 
-> 一分钟即可完成海报开发
+> 目标：一分钟完成海报开发
 
-🔥🔥🔥 fastposter海报生成器，电商海报编辑器，电商主图编辑器，电商海报设计器，fast快速生成海报 海报制作 海报开发。二维码海报，图片海报，分享海报，二维码推广海报，支持Java Python PHP Go JS 小程序。基于Vue 和Pillow 
+🔥🔥🔥 fastposter海报生成器是一款快速开发海报工具，开发人员只需要上传一个海报底图，然后将对应的组件（文字、图片、二维码、头像） 放到合适的位置，即可生成调用的代码。用所见即所得的方式快速完成海报开发。
 
 
 **欢迎点亮小星星，加速项目迭代更新**
@@ -11,8 +11,8 @@
 <a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
 
 - 开发文档：[https://poster.prodapi.cn/doc/](https://poster.prodapi.cn/doc/)
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.8.2)
-- 专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.8.2)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.8.3)
+- 专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.8.3)
 
 ### 只需三步，即可完成海报开发
 
