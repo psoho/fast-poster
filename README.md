@@ -6,7 +6,7 @@
 
 点击`代码`直接生成各种语言的调用代码，方便快速开发。
 
-## 文档、在线示例
+## 文档
 
 - 开发文档：[https://poster.prodapi.cn/doc/](https://poster.prodapi.cn/doc/)
 - 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.8.3)
@@ -17,20 +17,20 @@
 <a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
 <a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
 
-## 只需三步，即可完成海报开发
+## 快速开始
 
-#### 一、启动服务
+### 一、启动服务
 
 ```bash
 docker run -it --name fast-poster -p 5000:5000 tangweixin/fast-poster
 ```
 
-#### 二、编辑海报
+### 二、编辑海报
 
 ![fastposter编辑海报](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png)
 
 
-#### 三、生成代码
+### 三、生成代码
 
 ![fastposter生成代码](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png)
 
@@ -52,26 +52,22 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 {"code": 0, "msg": "success", "data": {"url": "https://poster.prodapi.cn/v/e670a0b84209a7d9"}}
 ```
 
-### 适用场景：
+## 适用场景
 
-- 电商主图编辑器
-- 在线作图
+- 生成朋友圈海报
 - 电商海报编辑器
+- 二维码分享海报图片
 - Python Pillow绘图 Pillow制作海报
+- 电商主图编辑器
 - Java生成二维码分享海报图片
 - Java Graphics2D绘制海报图片
 - 微信小程序生成海报分享朋友圈
 - PHP生成二维码海报图片
 - 自定义商业海报图片
 - H5生成海报图片
-- 二维码分享海报图片
 - canvas生成海报图片
 - 通过JSON生成海报图片
-
-
-[comment]: <> "### 追星之路"
-
-[comment]: <> "[![Stargazers over time]&#40;https://starchart.cc/psoho/fast-poster.svg&#41;]&#40;https://starchart.cc/psoho/fast-poster&#41;"
+- 持续完善
 
 ## 捐赠
 
@@ -83,6 +79,5 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 
 ![fastposer作者微信](https://poster.prodapi.cn/doc/assets/qrcode.jpeg)
 
-## License
 
 
