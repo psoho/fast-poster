@@ -51,9 +51,9 @@ def drawImg(draw, d, bg):
 
 def drawBg(item):
     url, w, h, c = str(item['bgUrl']), item['w'], item['h'], item['bgc']
-    c = '#fafbfc' if c == '' else c
+    c = '#fafbfc00' if c == '' else c
     if not url.strip():
-        img = Image.new('RGB', (w, h), c)
+        img = Image.new('RGBA', (w, h), c)
     else:
         img = fetchImg(url)
     img = img.resize((w, h), Image.ANTIALIAS)
