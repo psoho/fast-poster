@@ -60,7 +60,6 @@ def init():
         elif opt in ("-t", "--token"):
             token = arg
     if not token:
-        # 获取配置文件
         try:
             token = config.get('app')['token']
         except Exception:

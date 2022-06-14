@@ -95,7 +95,6 @@ def query_user_poster(poster_id: int):
         c = con.cursor()
         r = c.execute('select * from posters where id = ? limit 1', [poster_id])
         row = r.fetchone()
-        # print(row)
         if row is not None:
             return {
                 'id': row[0],
@@ -116,7 +115,6 @@ def query_user_share(code: str):
         c = con.cursor()
         r = c.execute('select * from links where code = ? limit 1', [code])
         row = r.fetchone()
-        # print(row)
         if row is not None:
             return {
                 'id': row[0],

@@ -28,13 +28,12 @@ def fetchImg(url=''):
         r = requests.get(url, timeout=0.2)
         return Image.open(BytesIO(r.content)).convert('RGBA')
     except urllib3.exceptions.ReadTimeoutError:
+        print(f'ERROR: fetch image timeout: url={url}')
+        traceback.print_exc()
         return None
     except Exception:
         traceback.print_exc()
         return NO_IMG
-    except urllib3.exceptions.ReadTimeoutError:
-        print('xxx')
-        return None
 
 
 def drawImg(draw, d, bg):
