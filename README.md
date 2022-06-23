@@ -61,6 +61,13 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 
 ## 适用场景
 
+- 海报生成器
+- 海报生成
+- 海报生成网站
+- 海报自动生成工具
+- 海报在线设计生成器
+- 海报生成系统
+- 海报生成器在线制作
 - 生成朋友圈海报
 - 电商海报编辑器
 - 二维码分享海报图片
@@ -74,7 +81,6 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 - H5生成海报图片
 - canvas生成海报图片
 - 通过JSON生成海报图片
-- 持续完善
 
 ## 社区
 
