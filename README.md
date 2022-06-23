@@ -71,7 +71,7 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 - 生成朋友圈海报
 - 电商海报编辑器
 - 证书生成
-- 毕业证书制作
+- 证书制作
 - 证书自动生成工具
 - 证书自动生成器
 - 条形码
