@@ -70,6 +70,11 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 - 海报生成器在线制作
 - 生成朋友圈海报
 - 电商海报编辑器
+- 证书生成
+- 毕业证书制作
+- 证书自动生成工具
+- 证书自动生成器
+- 条形码
 - 二维码分享海报图片
 - Python Pillow绘图 Pillow制作海报
 - 电商主图编辑器
@@ -81,6 +86,7 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 - H5生成海报图片
 - canvas生成海报图片
 - 通过JSON生成海报图片
+- BufferdImage绘制图片
 
 ## 社区
 
