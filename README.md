@@ -10,13 +10,13 @@
 
 - 开发文档：[https://poster.prodapi.cn/doc/](https://poster.prodapi.cn/doc/)
 - 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.8.3)
-- 专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.8.3)
-- 专业版Java语言：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.8.3)
+- 专业版-Python：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.8.3)
+- 专业版-Java：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.8.3)
 
 > 你点亮的小星星，正在加速项目开发
 
-<a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
-<a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
+<a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img style="max-width: 100px;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
+<a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img style="max-width: 100px;" alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
 
 ## 快速开始
 
@@ -76,15 +76,9 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 - 通过JSON生成海报图片
 - 持续完善
 
-## 捐赠
-
-如果你觉得 `fastposter` 对你有帮助，或者想对我们微小的工作一点支持，欢迎给我们[捐赠](https://poster.prodapi.cn/doc/guide/donate.html)
-
 ## 社区
 
-进群加作者微信`fastposter`
+作者微信`fastposter`
 
 ![fastposer作者微信](https://poster.prodapi.cn/doc/assets/qrcode.jpeg)
-
-
 
