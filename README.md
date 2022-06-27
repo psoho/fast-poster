@@ -9,9 +9,9 @@
 ## 文档
 
 - 开发文档：[https://poster.prodapi.cn/doc/](https://poster.prodapi.cn/doc/)
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.8.3)
-- 专业版-Python：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.8.3)
-- 专业版-Java：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.8.3)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.8.4)
+- 专业版-Python：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.8.4)
+- 专业版-Java：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.8.4)
 
 > 你点亮的小星星，正在加速项目开发
 
