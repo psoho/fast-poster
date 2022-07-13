@@ -1,22 +1,28 @@
-<p align="center"><a href="https://poster.prodapi.cn/doc/" target="_blank"><img width="100" src="https://poster.prodapi.cn/doc/assets/dragonfly.svg" alt="fast-poster logo"></a></p>
+<p style="text-align: center;"><a href="https://poster.prodapi.cn/doc/" target="_blank"><img width="100" src="https://poster.prodapi.cn/doc/assets/dragonfly.svg" alt="fast-poster logo"></a></p>
+
+<p style="text-align: center;">
+  <a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img style="max-width: 100px;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
+  <a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img style="max-width: 100px;" alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
+  <img alt="csharp" src="https://img.shields.io/badge/language-python-brightgreen.svg">
+  <img alt="license" src="https://img.shields.io/badge/license-GPL-blue.svg">
+  <img alt="version" src="https://img.shields.io/badge/version-2.9.0-green">
+</p>
 
 ## 介绍
 
 🔥🔥🔥 fastposter海报生成器是一款快速开发海报的工具。只需上传一张背景图，在对应的位置放上组件（`文字`、`图片`、`二维码`、`头像`）即可生成海报。 点击`代码`直接生成各种语言的调用代码，方便快速开发。
 
-现已服务众多电商类项⽬，多个项⽬有`48W+`⽤户，通过多年⽣产环境的考验，稳定可靠。广泛应用于各类电商、分销系统、电商海报编辑、电商主图编辑等海报生成和制作场景。
+现已服务众多电商类项⽬，多个项⽬有`49W+`⽤户，通过多年⽣产环境的考验，稳定可靠。广泛应用于各类电商、分销系统、电商海报、电商主图等海报生成和制作场景。
 
 ## 文档
 
 - 开发文档：[https://poster.prodapi.cn/doc/](https://poster.prodapi.cn/doc/)
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.8.4)
-- 专业版-Python：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.8.4)
-- 专业版-Java：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.8.4)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.9.0)
+- 专业版-Python：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.9.0)
+- 专业版-Java：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.9.0)
 
-> 你点亮的小星星，正在加速项目开发
+> 你点亮的小星星，正在加速项目开发迭代
 
-<a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img style="max-width: 100px;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
-<a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img style="max-width: 100px;" alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
 
 ## 快速开始
 
@@ -62,19 +68,13 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 ## 适用场景
 
 - 海报生成器
-- 海报生成
-- 海报生成网站
 - 海报自动生成工具
 - 海报在线设计生成器
-- 海报生成系统
 - 海报生成器在线制作
 - 生成朋友圈海报
 - 电商海报编辑器
-- 证书生成
 - 证书制作
 - 证书自动生成工具
-- 证书自动生成器
-- 条形码
 - 二维码分享海报图片
 - Python Pillow绘图 Pillow制作海报
 - 电商主图编辑器

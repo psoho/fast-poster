@@ -191,20 +191,16 @@ def find_share_data(code):
         posterId = int(param['posterId'])
     p = query_user_poster(posterId)
 
-    data = json.loads(p['json'])
-    items = data['items']
-    dic = {}
-    for item in items:
-        vd = item['vd']
-        if vd.strip():
-            dic[vd] = item
-    if p is None:
-        return None
-    for item in param.items():
-        k = item[0]
-        v = item[1]
-        if k == 'bgUrl':
-            data['bgUrl'] = v
-        if dic.get(k, None) is not None:
-            dic[k]['v'] = v
-    return data
+    d = json.loads(p['json'])
+    for item in d['items']:
+        vd = item['vd'].strip()
+        if vd:
+            if not param.get(vd, None):
+                continue
+            v = param[vd]
+            if v:
+                item['v'] = v.strip()
+    # 处理背景图片
+    if param.get('bgUrl', None):
+        d['bgUrl'] = param['bgUrl']
+    return d
