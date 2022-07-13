@@ -3,9 +3,10 @@
 <p align="center">
   <a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img style="max-width: 100px;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
   <a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img style="max-width: 100px;" alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
-  <img alt="csharp" src="https://img.shields.io/badge/language-python-brightgreen.svg">
-  <img alt="license" src="https://img.shields.io/badge/license-GPL-blue.svg">
-  <img alt="version" src="https://img.shields.io/badge/version-2.9.0-green">
+  <img alt="csharp" src="https://img.shields.io/badge/language-python-yellow.svg">
+  <img alt="csharp" src="https://img.shields.io/badge/language-vue-green.svg">
+  <img alt="license" src="https://img.shields.io/badge/license-GPL3.0-blue.svg">
+  <img alt="version" src="https://img.shields.io/badge/version-2.9.0-brightgreen">
 </p>
 
 ## 介绍
