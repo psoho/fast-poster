@@ -9,7 +9,7 @@
   <img alt="version" src="https://img.shields.io/badge/version-2.9.0-brightgreen">
 </p>
 
-## 介绍
+## 介绍 
 
 🔥🔥🔥 fastposter海报生成器是一款快速开发海报的工具。只需上传一张背景图，在对应的位置放上组件（`文字`、`图片`、`二维码`、`头像`）即可生成海报。 点击`代码`直接生成各种语言的调用代码，方便快速开发。
 
