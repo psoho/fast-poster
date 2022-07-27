@@ -1,6 +1,6 @@
 requests==2.28.1
-Pillow==9.0.1
+Pillow==9.2.0
 qrcode==7.3.1
-requests_cache==0.9.4
+requests_cache==0.9.5
 tornado==6.1
 pyyaml==6.0

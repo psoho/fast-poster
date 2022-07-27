@@ -83,8 +83,8 @@ def query_user_posters():
                 'name': row[2],
                 'preview': row[3],
                 'json': row[4],
-                'create_time': row[5],
-                'update_time': row[6],
+                'createTime': row[5],
+                'updateTime': row[6],
                 # 'status': row[7],
             })
         return posters
@@ -102,8 +102,8 @@ def query_user_poster(poster_id: int):
                 'name': row[2],
                 'preview': row[3],
                 'json': row[4],
-                'create_time': row[5],
-                'update_time': row[6],
+                'createTime': row[5],
+                'updateTime': row[6],
                 'status': row[7],
             }
         else:
@@ -121,7 +121,7 @@ def query_user_share(code: str):
                 'code': row[1],
                 'pid': row[2],
                 'params': row[3],
-                'create_time': row[4],
+                'createTime': row[4],
             }
         else:
             return None
