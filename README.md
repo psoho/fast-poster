@@ -105,4 +105,3 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 作者微信`fastposter`
 
 ![fastposer作者微信](https://poster.prodapi.cn/doc/assets/qrcode.jpeg)
-
