@@ -6,21 +6,23 @@
   <img alt="csharp" src="https://img.shields.io/badge/language-python-yellow.svg">
   <img alt="csharp" src="https://img.shields.io/badge/language-vue-brightgreen.svg">
   <img alt="license" src="https://img.shields.io/badge/license-GPL3.0-blue.svg">
-  <img alt="version" src="https://img.shields.io/badge/version-2.9.2-brightgreen">
+  <img alt="version" src="https://img.shields.io/badge/version-2.9.3-brightgreen">
 </p>
 
 ## 介绍
 
 🔥🔥🔥 fastposter海报生成器是一款快速开发海报的工具。只需上传一张背景图，在对应的位置放上组件（`文字`、`图片`、`二维码`、`头像`）即可生成海报。 点击`代码`直接生成各种语言的调用代码，方便快速开发。
 
-现已服务众多电商类项⽬，多个项⽬有`51W+`⽤户，通过多年⽣产环境的考验，稳定可靠。广泛应用于各类电商、分销系统、电商海报、电商主图等海报生成和制作场景。
+现已服务众多电商类项⽬，多个项⽬有`52W+`⽤户，通过多年⽣产环境的考验，稳定可靠。广泛应用于各类电商、分销系统、电商海报、电商主图等海报生成和制作场景。
+
+> 感谢大家的捐赠和支持、开源不易、希望能够一直坚持。
 
 ## 文档
 
 - 开发文档：[https://poster.prodapi.cn/doc/](https://poster.prodapi.cn/doc/)
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.9.2)
-- 专业版-Python：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.9.2)
-- 专业版-Java：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.9.2)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.9.3)
+- 专业版-Python：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.9.3)
+- 专业版-Java：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.9.3)
 
 > 你点亮的小星星，正在加速项目开发迭代
 
@@ -105,4 +107,3 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 作者微信`fastposter`
 
 ![fastposer作者微信](https://poster.prodapi.cn/doc/assets/qrcode.jpeg)
-
