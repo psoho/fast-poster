@@ -5,7 +5,7 @@
   <a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img style="max-width: 100px;" alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
   <img alt="csharp" src="https://img.shields.io/badge/language-python-yellow.svg">
   <img alt="csharp" src="https://img.shields.io/badge/language-vue-brightgreen.svg">
-  <img alt="license" src="https://img.shields.io/badge/license-GPL3.0-blue.svg">
+  <img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg">
   <img alt="version" src="https://img.shields.io/badge/version-2.9.3-brightgreen">
 </p>
 
