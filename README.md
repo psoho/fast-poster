@@ -5,8 +5,8 @@
   <a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img style="max-width: 100px;" alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
   <img alt="csharp" src="https://img.shields.io/badge/language-python-yellow.svg">
   <img alt="csharp" src="https://img.shields.io/badge/language-vue-brightgreen.svg">
-  <img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg">
-  <img alt="version" src="https://img.shields.io/badge/version-2.9.3-brightgreen">
+  <img alt="license" src="https://img.shields.io/badge/license-GPL3.0-blue.svg">
+  <img alt="version" src="https://img.shields.io/badge/version-2.10.0-brightgreen">
 </p>
 
 ## 介绍
@@ -20,9 +20,9 @@
 ## 文档
 
 - 开发文档：[https://poster.prodapi.cn/doc/](https://poster.prodapi.cn/doc/)
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.9.3)
-- 专业版-Python：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.9.3)
-- 专业版-Java：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.9.3)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.10.0)
+- 专业版-Python：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.10.0)
+- 专业版-Java：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.10.0)
 
 > 你点亮的小星星，正在加速项目开发迭代
 
