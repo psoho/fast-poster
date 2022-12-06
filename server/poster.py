@@ -75,6 +75,10 @@ def wrap_text(text, font, width):
     sb = []
     temp = ''
     for s in text:
+        if s == '\n': # 优化本文中含有换行符
+            sb.append(temp)
+            temp = ''
+            continue
         t = temp + s
         if font.getsize(t)[0] > width:
             sb.append(temp)
