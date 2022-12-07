@@ -117,3 +117,5 @@ build.sh
 cache.sqlite
 
 #git -c credential.helper= -c core.quotepath=false -c log.showSignature=false fetch github --recurse-submodules=no --progress --prune
+
+design
