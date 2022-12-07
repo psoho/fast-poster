@@ -120,3 +120,6 @@ cache.sqlite
 
 design
 *.sh
+
+server/data/store
+
