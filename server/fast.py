@@ -154,8 +154,7 @@ class MyStaticFileHandler(StaticFileHandler, BaseHandler):
 
 
 def make_app(p):
-    # path = "static" if C.indocker() else "../design/dist"
-    path = "static"
+    path = "static" if C.indocker() else "../design/dist"
     settings = {
         'debug': not C.indocker() or os.environ.get('POSTER_DEBUG', 'false') == 'true'
     }
