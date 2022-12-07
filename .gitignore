@@ -122,4 +122,4 @@ design
 *.sh
 
 server/data/store
-
+.do**
