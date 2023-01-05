@@ -123,3 +123,5 @@ design
 
 server/data/store
 .do**
+server/static/js/
+server/static/css/
