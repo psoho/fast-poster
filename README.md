@@ -48,12 +48,12 @@ docker run -it --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 ### 二、编辑海报
 
-![fastposter编辑海报](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png)
+![fastposter编辑海报](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png?v=2.11.0)
 
 
 ### 三、生成代码
 
-![fastposter生成代码](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png)
+![fastposter生成代码](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png?v=2.11.0)
 
 请求示例（可直接传递需要的参数）
 

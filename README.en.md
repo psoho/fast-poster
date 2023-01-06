@@ -48,12 +48,12 @@ docker run -it --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 2. Edit the poster
 
-![fastposter edit posters](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png)
+![fastposter edit posters](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png?v=2.11.0)
 
 
 3. Generate code
 
-![fastposter generated code](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png)
+![fastposter generated code](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png?v=2.11.0)
 
 Sample request (you can pass the required parameters directly)
 
