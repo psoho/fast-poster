@@ -49,8 +49,8 @@ def db_save_poster(code: str, name: str, preview: str, json: str):
 def db_update_poster(id: int, code: str, name: str, preview: str, json: str):
     with conn() as con:
         c = con.cursor()
-        params = [name, preview, json, now_str(), id]
-        c.execute("update posters set name=?,preview=?,json=?,update_time=? where id=?", params)
+        params = [code, name, preview, json, now_str(), id]
+        c.execute("update posters set code=?,name=?,preview=?,json=?,update_time=? where id=?", params)
         con.commit()
 
 
@@ -90,13 +90,10 @@ def query_user_posters():
         return posters
 
 
-def query_user_poster(poster_id=0, uuid=None):
+def query_user_poster(poster_id: int):
     with conn() as con:
         c = con.cursor()
-        if uuid:
-            r = c.execute('select * from posters where code = ? limit 1', [uuid])
-        else:
-            r = c.execute('select * from posters where id = ? limit 1', [poster_id])
+        r = c.execute('select * from posters where id = ? limit 1', [poster_id])
         row = r.fetchone()
         if row is not None:
             return {
@@ -163,8 +160,7 @@ def save_or_update_user_poster(data):
 def copy_user_poster(id):
     p = query_user_poster(id)
     if p:
-        code = C.code()
-        return db_save_poster(code, p['name'] + '-复制', p['preview'], p['json'])
+        return db_save_poster(p['code'], p['name'] + '-复制', p['preview'], p['json'])
     return None
 
 
@@ -195,17 +191,6 @@ def find_share_data(code):
         posterId = int(param['posterId'])
     p = query_user_poster(posterId)
 
-    return merge_params(p, param)
-
-
-def find_build_data(uuid, param):
-    p = query_user_poster(uuid=uuid)
-    if p is None:
-        return None
-    return merge_params(p, param)
-
-
-def merge_params(p, param):
     d = json.loads(p['json'])
     for item in d['items']:
         vd = item['vd'].strip()
