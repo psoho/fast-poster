@@ -135,7 +135,11 @@ class ApiBuildPosterHandler(BaseAuthHandler):
         args = json.loads(self.request.body)
         print(args)
         traceId = C.code(32)
-        data = dao.find_build_data(args['uuid'], json.loads(args['payload']))
+        payload = args['payload']  # type: str
+        if not payload.startswith("{"):
+            # 需要base64解码
+            payload = base64.b64decode(payload)
+        data = dao.find_build_data(args['uuid'], json.loads(payload))
         if data is None:
             print('no poster here!')
             self.write(R.error('no poster here!'))
