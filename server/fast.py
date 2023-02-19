@@ -20,7 +20,7 @@ class BaseHandler(RequestHandler):
         origin_url = self.request.headers.get('Origin')
         if not origin_url: origin_url = '*'
         self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
-        self.set_header('fastposter', 'fastposter/v2.12.0')
+        self.set_header('fastposter', 'fastposter/v2.11.0')
         self.set_header('Access-Control-Allow-Credentials', 'true')
         self.set_header('Access-Control-Allow-Origin', origin_url)
         self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type')
@@ -129,6 +129,31 @@ class ApiLinkHandler(BaseAuthHandler):
             self.json(R.error(f'the poster [{param["posterId"]}] not exits.'))
 
 
+class ApiBuildPosterHandler(BaseAuthHandler):
+
+    def post(self):
+        args = json.loads(self.request.body)
+        print(args)
+        traceId = C.code(32)
+        payload = args['payload']  # type: str
+        if not payload.startswith("{"):
+            # 需要base64解码
+            payload = base64.b64decode(payload)
+        data = dao.find_build_data(args['uuid'], json.loads(payload))
+        if data is None:
+            print('no poster here!')
+            self.write(R.error('no poster here!'))
+            return
+        buf, mimetype = poster.drawio(data)
+        self.set_header('fastposter-traceid', traceId)
+        if args.get('b64', False):
+            b64 = base64.b64encode(buf.read()).decode()
+            self.write(b64)
+        else:
+            self.set_header('Content-Type', mimetype)
+            self.write(buf.getvalue())
+
+
 class ApiViewHandler(BaseHandler):
 
     def get(self, code: str):
@@ -168,6 +193,7 @@ def make_app(p):
         (f"{p}api/preview", ApiPreviewHandler),
         (f"{p}api/upload", ApiUploadHandler),
         (f"{p}api/link", ApiLinkHandler),
+        (f"{p}v1/build/poster", ApiBuildPosterHandler),
         (f"{p}v/(.+)", ApiViewHandler),
         (f'{p}(store/.*)$', StaticFileHandler, {"path": join(dirname(__file__), "data")}),
         (f'{p}resource/(.*)$', MyStaticFileHandler, {"path": join(dirname(__file__), "resource")}),
