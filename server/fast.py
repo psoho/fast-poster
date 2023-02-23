@@ -20,7 +20,7 @@ class BaseHandler(RequestHandler):
         origin_url = self.request.headers.get('Origin')
         if not origin_url: origin_url = '*'
         self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
-        self.set_header('fastposter', 'fastposter/v2.11.0')
+        self.set_header('fastposter', 'fastposter/v2.12.0')
         self.set_header('Access-Control-Allow-Credentials', 'true')
         self.set_header('Access-Control-Allow-Origin', origin_url)
         self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type')
