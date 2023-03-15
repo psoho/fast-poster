@@ -1,4 +1,4 @@
-<p align="center"><a href="https://poster.prodapi.cn/doc/" target="_blank"><img width="120" src="https://poster.prodapi.cn/doc/assets/dragonfly.svg" alt="fast-poster logo"></a></p>
+<p align="center"><a href="https://poster.prodapi.cn/doc/" target="_blank"><img width="168" src="https://poster.prodapi.cn/doc/assets/dragonfly2x.png" alt="fast-poster logo"></a></p>
 
 <p align="center">
   <a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img style="max-width: 100px;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
@@ -13,26 +13,27 @@
 
 fastposter海报生成器是一款快速开发海报的工具。只需上传一张背景图，在对应的位置放上组件（`文字`、`图片`、`二维码`、`头像`）即可生成海报。 点击`代码`直接生成各种语言的调用代码，方便快速开发。
 
-现已服务众多电商类项⽬，多个项⽬有`54W+`⽤户，通过多年⽣产环境的考验，稳定可靠。广泛应用于各类电商、分销系统、电商海报、电商主图等海报生成和制作场景。
+现已服务众多电商类项⽬，多个项⽬有`56W+`⽤户，通过多年⽣产环境的考验，稳定可靠。广泛应用于各类电商、分销系统、电商海报、电商主图等海报生成和制作场景。
 
 > 非常感谢大家的支持与认可，开源不易、希望能够一直坚持。
 
 ## 文档
 
-- 开发文档：[https://poster.prodapi.cn/doc/](https://poster.prodapi.cn/doc/)
+- 开发文档：[https://cloud.fastposter.net/doc/](https://cloud.fastposter.net/doc/)
 - 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.13.0)
 - 云服务版：[https://cloud.fastposter.net/](https://cloud.fastposter.net/login?p=pDQ0koJ+Z9oU0PyaHzbpHA==)
-- 专业版-Python：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.13.0)
-- 专业版-Java：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.13.0)
+- Java专业版：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.13.0)
+- Python专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.13.0)
 
 > 你点亮的小星星，正在加速项目开发迭代
 
 ## 特性
 
-- 🔥`云服务` 无需部署直接使用
+- 🔥🔥🔥`云服务` 无需部署直可接使用
 - 支持docker快速部署
 - 支持电商级生产环境
 - 支持多种编程语言 `Java` `Python` `PHP` `Golang` `JavaScript` `小程序`
+- 🔥🔥🔥新增 SDK 支持，方便快速开发。(不断扩充中)
 - 无需编写复杂的绘图渲染代码
 - 极低的服务器资源开销
 - 支持多种文件格式 `jpeg` `png` `webp` `pdf` `base64`
