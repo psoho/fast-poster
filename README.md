@@ -21,7 +21,7 @@ fastposter海报生成器是一款快速开发海报的工具。只需上传一�
 
 - 开发文档：[https://cloud.fastposter.net/doc/](https://cloud.fastposter.net/doc/)
 - 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.13.0)
-- 云服务版：[https://cloud.fastposter.net/](https://cloud.fastposter.net/login?p=pDQ0koJ+Z9oU0PyaHzbpHA==)
+- 🔥🔥免费试用-云服务：[https://cloud.fastposter.net/](https://cloud.fastposter.net/login?p=pDQ0koJ+Z9oU0PyaHzbpHA==)
 - Java专业版：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.13.0)
 - Python专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.13.0)
 
@@ -29,11 +29,11 @@ fastposter海报生成器是一款快速开发海报的工具。只需上传一�
 
 ## 特性
 
-- 🔥🔥🔥`云服务` 无需部署直可接使用
+- `云服务` 无需部署直可接使用
 - 支持docker快速部署
 - 支持电商级生产环境
 - 支持多种编程语言 `Java` `Python` `PHP` `Golang` `JavaScript` `小程序`
-- 🔥🔥🔥新增 SDK 支持，方便快速开发。(不断扩充中)
+- 新增 SDK 支持，方便快速开发。
 - 无需编写复杂的绘图渲染代码
 - 极低的服务器资源开销
 - 支持多种文件格式 `jpeg` `png` `webp` `pdf` `base64`
