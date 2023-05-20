@@ -6,7 +6,7 @@
   <img alt="csharp" src="https://img.shields.io/badge/language-python-yellow.svg">
   <img alt="csharp" src="https://img.shields.io/badge/language-vue-brightgreen.svg">
   <img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg">
-  <img alt="version" src="https://img.shields.io/badge/version-2.13.0-brightgreen">
+  <img alt="version" src="https://img.shields.io/badge/version-2.15.0-brightgreen">
 </p>
 
 ## 介绍
@@ -20,10 +20,10 @@ fastposter海报生成器是一款快速开发海报的工具。只需上传一�
 ## 文档
 
 - 开发文档：[https://cloud.fastposter.net/doc/](https://cloud.fastposter.net/doc/)
-- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.13.0)
+- 在线体验：[https://poster.prodapi.cn/](https://poster.prodapi.cn/#from=2.15.0)
 - 🔥🔥免费试用-云服务：[https://cloud.fastposter.net/](https://cloud.fastposter.net/login?p=pDQ0koJ+Z9oU0PyaHzbpHA==)
-- Java专业版：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.13.0)
-- Python专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.13.0)
+- Java专业版：[https://poster.prodapi.cn/pro/java/](https://poster.prodapi.cn/pro/java/#from=2.15.0)
+- Python专业版：[https://poster.prodapi.cn/pro/](https://poster.prodapi.cn/pro/#from=2.15.0)
 
 > 你点亮的小星星，正在加速项目开发迭代
 
@@ -51,12 +51,12 @@ docker run -it --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 ### 二、编辑海报
 
-![fastposter编辑海报](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png?v=2.13.0)
+![fastposter编辑海报](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png?v=2.15.0)
 
 
 ### 三、生成代码
 
-![fastposter生成代码](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png?v=2.13.0)
+![fastposter生成代码](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png?v=2.15.0)
 
 请求示例（可直接传递需要的参数）
 
