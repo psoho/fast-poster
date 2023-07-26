@@ -184,6 +184,7 @@ def make_app(p):
     settings = {
         'debug': not C.indocker() or os.environ.get('POSTER_DEBUG', 'false') == 'true'
     }
+    print('p', p)
     return Application([
         (f"{p}api/login", ApiLoginHandler),
         (f"{p}api/user/posters", ApiUserPostersHandler),
@@ -213,7 +214,7 @@ if __name__ == "__main__":
                       | |                                 
                       |_|                                 
                                     fastposter(v2.16.0)     
-                             https://poster.prodapi.cn/doc/   
+                             https://fastposter.net/doc/   
                                                             '''
     PORT = 5000
     print(banner)
