@@ -20,10 +20,10 @@ fastposter海报生成器是一款快速开发海报的工具。只需上传一�
 ## 文档
 
 - 开发文档：[https://fastposter.net/doc/](https://fastposter.net/doc/)
-- 在线体验：[https://fastposter.net/demo/open/](https://fastposter.net/demo/open/)
 - Java专业版-在线体验：[https://fastposter.net/demo/java/](https://fastposter.net/demo/java/)
 - Python专业版-在线体验：[https://fastposter.net/demo/python/](https://fastposter.net/demo/python/)
-- 🔥🔥免费试用-云服务：[https://fastposter.net/](https://fastposter.net/)
+- 社区版-在线体验：[https://fastposter.net/demo/open/](https://fastposter.net/demo/open/)
+- 🔥🔥云服务-免费试用：[https://fastposter.net/](https://fastposter.net/)
 
 ## 特性
 
