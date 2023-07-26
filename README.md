@@ -51,36 +51,33 @@ docker run -it --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 ### 二、编辑海报
 
-![fastposter编辑海报](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png?v=2.16.0)
+![fastposter编辑海报](https://fastposter.net/dassets/image-20220407142530149.png?v=2.16.0)
 
 
 ### 三、生成代码
 
-![fastposter生成代码](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png?v=2.16.0)
+![fastposter生成代码](https://fastposter.net/dassets/image-20220407142705928.png?v=2.16.0)
 
 请求示例（可直接传递需要的参数）
 
-```bash
-curl --location --request POST 'https://poster.prodapi.cn/api/link' \
---header 'Content-Type: application/json' \
---header 'token: ApfrIzxCoK1DwNZOEJCwlrnv6QZ0PCdv' \
---data-raw '{
-  "title": "人工智能+机器学习",
-  "id": 2
-}'
+```java
+// 1.创建海报客户端对象
+FastposterClient client = FastposterClient.builder()
+        .endpoint("http://127.0.0.1:5000")      // 设置接入端点
+        .token("ApfrIzxCoK1DwNZOEJCwlrnv6QZ0PCdv")  // 设置token
+        .build();
+
+// 2.准备海报参数
+Map<String, Object> params = new HashMap<>();
+params.put("name", "测试文本");
+
+// 3.生成海报并保存
+client.buildPoster("80058c79d1e2e617").params(params).build().save("demo.png");
 ```
 
 响应示例（返回海报的访问地址）
 
-```json
-{
-    "code": 0,
-    "msg": "success",
-    "data": {
-        "url": "https://poster.prodapi.cn/v/90295c118d4c8802"
-    }
-}
-```
+<img width=300 src="https://cloud.fastposter.net/doc/assets/aaa-3384357.3774ac3f.png" />
 
 ## 适用场景
 
@@ -109,4 +106,4 @@ curl --location --request POST 'https://poster.prodapi.cn/api/link' \
 
 作者微信`fastposter`
 
-![fastposer作者微信](https://poster.prodapi.cn/doc/assets/qrcode.jpeg)
+![fastposer作者微信](https://fastposter.net/dassets/qrcode.jpeg)

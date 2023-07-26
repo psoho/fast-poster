@@ -48,12 +48,12 @@ docker run -it --name fast-poster -p 5000:5000 tangweixin/fast-poster
 
 2. Edit the poster
 
-![fastposter edit posters](https://poster.prodapi.cn/doc/assets/image-20220407142530149.png?v=2.16.0)
+![fastposter edit posters](https://fastposter.net/dassets/image-20220407142530149.png?v=2.16.0)
 
 
 3. Generate code
 
-![fastposter generated code](https://poster.prodapi.cn/doc/assets/image-20220407142705928.png?v=2.16.0)
+![fastposter generated code](https://fastposter.net/dassets/image-20220407142705928.png?v=2.16.0)
 
 Sample request (you can pass the required parameters directly)
 
@@ -106,4 +106,4 @@ Sample response (Return the poster's access address)
 
 The author of wechat 'fastposter'
 
-![fastposer author WeChat](https://poster.prodapi.cn/doc/assets/qrcode.jpeg)
+![fastposer author WeChat](https://fastposter.net/dassets/qrcode.jpeg)
