@@ -1,4 +1,4 @@
-<p align="center"><a href="https://poster.prodapi.cn/doc/" target="_blank"><img width="168" src="https://fastposter.net/dassets/dragonfly2x.png" alt="fast-poster logo"></a></p>
+<p align="center"><a href="https://fastposter.net/doc/" target="_blank"><img width="168" src="https://fastposter.net/dassets/dragonfly2x.png" alt="fast-poster logo"></a></p>
 
 <p align="center">
   <a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img style="max-width: 100px;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
