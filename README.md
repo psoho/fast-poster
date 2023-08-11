@@ -40,7 +40,7 @@ fastposter海报生成器是一款快速开发海报的工具。只需上传一�
 ### 一、启动服务
 
 ```bash
-docker run -it --name fast-poster -p 5000:5000 tangweixin/fast-poster
+docker run -it --name fastposter -p 5000:5000 fastposter/fastposter
 ```
 
 ### 二、编辑海报
