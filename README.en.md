@@ -43,7 +43,7 @@ Now it has served a large number of e-commerce projects, many of which have `60W
 1. Start the service
 
 ```bash
-docker run -it --name fast-poster -p 5000:5000 tangweixin/fast-poster
+docker run -it --name fastposter -p 5000:5000 fastposter/fastposter
 ```
 
 2. Edit the poster
