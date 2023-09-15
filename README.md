@@ -69,7 +69,7 @@ params.put("name", "测试文本");
 client.buildPoster("80058c79d1e2e617").params(params).build().save("demo.png");
 ```
 
-响应示例（返回海报的访问地址）
+响应示例（返回海报图片二进制流）
 
 <img width=300 src="https://fastposter.net/dassets/demo.png" />
 
