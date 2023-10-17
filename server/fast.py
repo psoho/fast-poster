@@ -23,7 +23,7 @@ class BaseHandler(RequestHandler):
         self.set_header('fastposter', 'fastposter/v2.17.0')
         self.set_header('Access-Control-Allow-Credentials', 'true')
         self.set_header('Access-Control-Allow-Origin', origin_url)
-        self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type')
+        self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type,Client-Type,Client-Version')
 
     def options(self):
         self.set_status(200)
