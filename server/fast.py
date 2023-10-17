@@ -20,7 +20,7 @@ class BaseHandler(RequestHandler):
         origin_url = self.request.headers.get('Origin')
         if not origin_url: origin_url = '*'
         self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
-        self.set_header('fastposter', 'fastposter/v2.17.0')
+        self.set_header('fastposter', 'fastposter/v2.17.1')
         self.set_header('Access-Control-Allow-Credentials', 'true')
         self.set_header('Access-Control-Allow-Origin', origin_url)
         self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type,Client-Type,Client-Version')
@@ -213,7 +213,7 @@ if __name__ == "__main__":
 |_|   \__,_||___/ \__|| .__/  \___/ |___/ \__| \___||_|   
                       | |                                 
                       |_|                                 
-                                    fastposter(v2.17.0)     
+                                    fastposter(v2.17.1)     
                              https://fastposter.net/doc/   
                                                             '''
     PORT = 5000
