@@ -6,14 +6,14 @@
   <img alt="csharp" src="https://img.shields.io/badge/language-python-yellow.svg">
   <img alt="csharp" src="https://img.shields.io/badge/language-vue-brightgreen.svg">
   <img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg">
-  <img alt="version" src="https://img.shields.io/badge/version-2.17.1-brightgreen">
+  <img alt="version" src="https://img.shields.io/badge/version-2.18.0-brightgreen">
 </p>
 
 ## 介绍
 
 fastposter海报生成器是一款快速开发海报的工具。只需上传一张背景图，在对应的位置放上组件（`文字`、`图片`、`二维码`、`头像`）即可生成海报。 点击`代码`直接生成各种语言SDK的调用代码，方便快速开发。
 
-现已服务众多电商类项⽬，多个项⽬有`60W+`⽤户，通过多年⽣产环境的考验，稳定可靠。广泛应用于各类电商、分销系统、电商海报、电商主图等海报生成和制作场景。
+现已服务众多电商类项⽬，多个项⽬有`70W+`⽤户，通过多年⽣产环境的考验，稳定可靠。广泛应用于各类电商、分销系统、电商海报、电商主图等海报生成和制作场景。
 
 > 如果项目有帮到您，请点亮你点亮的小星星
 

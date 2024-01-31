@@ -20,7 +20,7 @@ class BaseHandler(RequestHandler):
         origin_url = self.request.headers.get('Origin')
         if not origin_url: origin_url = '*'
         self.set_header('Access-Control-Allow-Methods', 'POST, PUT, DELETE, GET, OPTIONS')
-        self.set_header('fastposter', 'fastposter/v2.17.1')
+        self.set_header('fastposter', 'fastposter/v2.18.0')
         self.set_header('Access-Control-Allow-Credentials', 'true')
         self.set_header('Access-Control-Allow-Origin', origin_url)
         self.set_header('Access-Control-Allow-Headers', 'x-requested-with,token,Content-type,Client-Type,Client-Version')
@@ -65,6 +65,12 @@ class ApiLoginHandler(BaseHandler):
             self.json(R.ok('login success.').add('token', token))
         else:
             self.json(R.error('token not match!'))
+
+
+class ApiUserInfoHandler(BaseAuthHandler):
+
+    def get(self):
+        self.json(R.ok().add('user', {"id":2,"username":"user1","type":1,"status":1}))
 
 
 class ApiPostersHandler(BaseAuthHandler):
@@ -186,6 +192,7 @@ def make_app(p):
     }
     print('p', p)
     return Application([
+        (f"{p}api/user/info", ApiUserInfoHandler),
         (f"{p}api/login", ApiLoginHandler),
         (f"{p}api/user/posters", ApiUserPostersHandler),
         (f"{p}api/user/posters/copy/(.+)", ApiUserPostersCopyHandler),
@@ -213,7 +220,7 @@ if __name__ == "__main__":
 |_|   \__,_||___/ \__|| .__/  \___/ |___/ \__| \___||_|   
                       | |                                 
                       |_|                                 
-                                    fastposter(v2.17.1)     
+                                    fastposter(v2.18.0)     
                              https://fastposter.net/doc/   
                                                             '''
     PORT = 5000
