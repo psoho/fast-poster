@@ -125,3 +125,5 @@ server/data/store
 .do**
 server/static/static/js/
 server/static/static/css/
+
+docker
