@@ -45,33 +45,63 @@ docker run -it --name fastposter -p 5000:5000 fastposter/fastposter
 
 ### 二、编辑海报
 
-![image-20230726174142177](https://fastposter.net/dassets/image-20230726174142177.png)
+![image-20240320145745417.png](https://fastposter.net/dassets/image-20240320145745417.png)
 
 
 ### 三、生成代码
 
-![image-20230726174208989](https://fastposter.net/dassets/image-20230726174208989.png)
+Java代码
 
-请求示例（可直接传递需要的参数）
+![image-20240320145856100.png](https://fastposter.net/dassets/image-20240320145856100.png)
+
 
 ```java
-// 1.创建海报客户端对象
-FastposterClient client = FastposterClient.builder()
-        .endpoint("http://127.0.0.1:5000")      // 设置接入端点
-        .token("ApfrIzxCoK1DwNZOEJCwlrnv6QZ0PCdv")  // 设置token
-        .build();
+// 进一步了解，请参考开发文档 https://fastposter.net/doc/sdk/
+import net.fastposter.client.FastposterClient;
+import java.util.*;
 
-// 2.准备海报参数
-Map<String, Object> params = new HashMap<>();
-params.put("name", "测试文本");
+public class FastposterClientDemo {
 
-// 3.生成海报并保存
-client.buildPoster("80058c79d1e2e617").params(params).build().save("demo.png");
+    public static void main(String[] args) {
+
+        // 1.创建海报客户端对象
+        FastposterClient client = FastposterClient.builder()
+                .endpoint("http://127.0.0.1:5000")      // 设置接入端点
+                .token("ApfrIzxCoK1DwNZOEJCwlrnv6QZ0PCdv")  // 设置token
+                .build();
+
+        // 2.准备海报参数
+        Map<String, Object> params = new HashMap<>();
+        params.put("NO", "SN88888888");
+
+
+        // 3.生成海报并保存
+        client.buildPoster("6fba72004fa20aee").params(params).build().save();
+
+    }
+
+}
 ```
 
-响应示例（返回海报图片二进制流）
+Python 代码
 
-<img width=300 src="https://fastposter.net/dassets/demo.png" />
+![image-20240320145914360.png](https://fastposter.net/dassets/image-20240320145914360.png)
+
+```python
+# 进一步了解，请参考开发文档 https://fastposter.net/doc/sdk/
+from fastposter import Client
+
+client = Client('ApfrIzxCoK1DwNZOEJCwlrnv6QZ0PCdv', 'http://127.0.0.1:5000')
+params = {
+  "NO": "SN88888888"
+}
+client.buildPoster('6fba72004fa20aee', params=params).save()
+```
+
+响应示例（返回海报图片）
+
+<img width=300 src="https://fastposter.net/dassets/image-20240320153953887.png" />
+
 
 ## 适用场景
 
