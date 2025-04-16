@@ -6,14 +6,14 @@
   <img alt="csharp" src="https://img.shields.io/badge/language-python-yellow.svg">
   <img alt="csharp" src="https://img.shields.io/badge/language-vue-brightgreen.svg">
   <img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg">
-  <img alt="version" src="https://img.shields.io/badge/version-2.19.0-brightgreen">
+  <img alt="version" src="https://img.shields.io/badge/version-2.19.1-brightgreen">
 </p>
 
 ## Introduction
 
 Fastposter is a rapid poster development tool that allows you to quickly create posters. Simply upload a background image and place components (`text`, `image`, `QR code`, `avatar`) in the desired positions to generate a poster. Click the `Code` button to directly generate SDK calling code in various languages, making development fast and easy.
 
-It has served numerous e-commerce projects, with over `60,000` users across multiple projects. Tested in production environments over the years, it's proven to be stable and reliable. It is widely used in various e-commerce, distribution systems, e-commerce posters, e-commerce main images, and other poster generation and production scenarios.
+It has served numerous e-commerce projects, with over `80,000` users across multiple projects. Tested in production environments over the years, it's proven to be stable and reliable. It is widely used in various e-commerce, distribution systems, e-commerce posters, e-commerce main images, and other poster generation and production scenarios.
 
 > If this project has been helpful to you, please give it a star.
 
