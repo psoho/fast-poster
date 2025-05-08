@@ -1,8 +1,8 @@
 <p align="center"><a href="https://fastposter.net/doc/" target="_blank"><img width="168" src="https://fastposter.net/dassets/dragonfly2x.png" alt="fast-poster logo"></a></p>
 
 <p align="center">
+  <a href="https://gitcode.com/psoho/fast-poster" class="link github-link" target="_blank"><img style="max-width: 100px;" alt="Gitcode Repo stars" src="https://gitcode.com/psoho/fast-poster/star/badge.svg"></a>
   <a href="https://github.com/psoho/fast-poster" class="link github-link" target="_blank"><img style="max-width: 100px;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/psoho/fast-poster?style=social"></a>
-  <a href="https://gitee.com/psoho/fast-poster" class="link gitee-link" target="_blank"><img style="max-width: 100px;" alt="gitee Repo stars" src="https://gitee.com/psoho/fast-poster/badge/star.svg"></a>
   <img alt="csharp" src="https://img.shields.io/badge/language-python-yellow.svg">
   <img alt="csharp" src="https://img.shields.io/badge/language-vue-brightgreen.svg">
   <img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg">
